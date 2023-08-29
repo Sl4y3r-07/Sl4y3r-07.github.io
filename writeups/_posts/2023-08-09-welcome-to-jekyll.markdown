@@ -8,9 +8,9 @@ categories: Forensics
 ```Description:-```
 As you all know, DEF CON CTF Qualifier 2023 was really competitive and we didn't make it. Surprisingly, 2 months before the finals in Las Vegas, we received an official invitation from Nautilus Institute to attend the event. Should we accept the invitation and schedule the trip?
 
-```Challenge File:``` [file](./DefCon/DEFCON_Finals_Invitation.eml)
+```Challenge File:``` [file](/assets/DEFCON_Finals_Invitation.eml)
 
-In this challenge, a .eml file is provided which is commonly used for storing email messages. On opening this email, there was an [attachment](./DefCon/dc31-invite.ics) (calendar invitation). It is a .ics file which is for iCalendar files. In this, I got two links :- `https://nautilus.org/` and `https://storage.googleapis.com/defcon-nautilus/venue-guide.html`. So, I opened both links. In first one, I got nothing but in second, I got something - `Caesars Forum Venue Map` and there was a download option for map, I downloaded that but to my surprise it was vbs script and now this challenge has been reduced to a vbs script based challenge.
+In this challenge, a .eml file is provided which is commonly used for storing email messages. On opening this email, there was an [attachment](/assets/dc31-invite.ics) (calendar invitation). It is a .ics file which is for iCalendar files. In this, I got two links :- `https://nautilus.org/` and `https://storage.googleapis.com/defcon-nautilus/venue-guide.html`. So, I opened both links. In first one, I got nothing but in second, I got something - `Caesars Forum Venue Map` and there was a download option for map, I downloaded that but to my surprise it was vbs script and now this challenge has been reduced to a vbs script based challenge.
 
 
 Now analysis part of vbs script starts...
@@ -33,7 +33,7 @@ It results in `c:\temp\defcon-flag.png.compromised`.
 Now search operation for key starts...
 
 
-![Image](./DefCon/Exec.png)
+![Image](/assets/Exec.png)
 
 So, we have to deobfuscate this vbs script. For this, I used `vbsedit` and it gave 
 
