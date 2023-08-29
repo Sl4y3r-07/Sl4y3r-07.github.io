@@ -1,0 +1,64 @@
+
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>http://localhost:4000/</id>
+  <title>Sl4y3r_07</title>
+  <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
+  <updated>2023-08-28T20:27:02+05:30</updated>
+  <author>
+    <name>Ayush Goyal</name>
+    <uri>http://localhost:4000/</uri>
+  </author>
+  <link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml"/>
+  <link rel="alternate" type="text/html" hreflang="en"
+    href="http://localhost:4000/"/>
+  <generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator>
+  <rights> © 2023 Ayush Goyal </rights>
+  <icon>/assets/img/favicons/favicon.ico</icon>
+  <logo>/assets/img/favicons/favicon-96x96.png</logo>
+
+
+  
+  <entry>
+    <title>SekaiCTF 2023 - DEFCON Invitation</title>
+    <link href="http://localhost:4000/posts/welcome-to-jekyll/" rel="alternate" type="text/html" title="SekaiCTF 2023 - DEFCON Invitation" />
+    <published>2023-08-28T06:21:40+05:30</published>
+  
+    <updated>2023-08-28T06:21:40+05:30</updated>
+  
+    <id>http://localhost:4000/posts/welcome-to-jekyll/</id>
+    <content src="http://localhost:4000/posts/welcome-to-jekyll/" />
+    <author>
+      <name>Ayush Goyal</name>
+    </author>
+
+  
+    
+    <category term="writeups" />
+    
+    <category term="Forensics" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      Description:-
+As you all know, DEF CON CTF Qualifier 2023 was really competitive and we didn’t make it. Surprisingly, 2 months before the finals in Las Vegas, we received an official invitation from Nautilus Institute to attend the event. Should we accept the invitation and schedule the trip?
+
+Challenge File: file
+
+In this challenge, a .eml file is provided which is commonly used for storing em...
+    </summary>
+  
+
+  </entry>
+
+</feed>
+
+
