@@ -24,7 +24,7 @@ In this, I found this.. and deobsfucating
 It results in `'https://download1647.mediafire.com/l188u2d532qg3fOoLpilcI89p0_h4E0cGLjk_uvBUiag7E_rMZ-H5-me9Kr9SQLVQaKSiKcEvJO-EkfTSUqWlrN6SzXgI0LYBh-F5em4IA4iX3tOIGh0Ej46GlwvLOfT8pzvuy91Utej1r2I0jg7YsUNcssPted508dskWRpkAI/yea535hvgp32vmv/defcon-flag.png.XORed'`
 Yes, I was going right.. now I have flag.png xored and need key with which I can get my flag.
 {% highlight ruby %}
-  StRREVErsE(replace("", "###############_###", "z"))
+  StRREVErsE(replace("=QWZ###############_###lWbvJHct92Yucmbw5yZhxmZt42bjZWZkxFctVGdcp###############_###Y", "###############_###", "z"))
 {% endhighlight %}
 It results in `c:\temp\defcon-flag.png.compromised`. 
 
