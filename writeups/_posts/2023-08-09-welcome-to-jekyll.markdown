@@ -60,10 +60,10 @@ From above snippet, it seems that POST request is to be sent to the given URL, a
 
 I set username to `admin` and bravo !! I got the key..
 
- ![Key](./DefCon/image.png)
+ ![Key](/assets/image.png)
  
 So with the key we XORed the downloaded XORed flag.png and yesss.. we got the flag !!
- ![Flag](./DefCon/flag.png)
+ ![Flag](/assets/flag.png)
  
 Flag :- `SEKAI{so_i_guess_we'll_get_more_better_next_year-_-}`
 
