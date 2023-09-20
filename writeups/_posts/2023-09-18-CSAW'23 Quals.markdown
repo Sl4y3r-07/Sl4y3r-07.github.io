@@ -59,7 +59,9 @@ Flag:- ```csawctf{01011100010001110000}```
 ```Challenge File:``` [file1](/assests/CSAW/Impossibrawler.pck) [file2](/assests/CSAW/Impossibrawler.exe)
 
  
-This game was based on game-reversing. It was a nice challenge as it made me to spend a lot of time as I overlooked something very basic. So let's discuss:- first, i ran the .exe file and found the flag was only accessible after completing two levels, but main catch here was, the bullets which player was firing were not causing the damage to enemies and thus their health remained constant. So in short, game was unbeatable by human(atleast for me as I'm very bad at gaming) to get flag.
+This game was based on game-reversing. It was a nice challenge as it made me to spend a lot of time as I overlooked something very basic. So let's discuss:- 
+
+First, I ran the .exe file and found the flag was only accessible after completing two levels, but main catch here was, the bullets which player was firing were not causing the damage to enemies and thus their health remained constant. So in short, game was unbeatable by human(atleast for me as I'm very bad at gaming) to get flag.
 
 I first approached it by Cheat Engine to get control over required variables and I tried searching for strings too.. but it was not of any help. Then I tried to extract files from exe itself but it was also a futile effort. Then I thought about the game-engine used:- Godot Engine. I googled about godot engine game reversing and got this helpful tool- [link](https://github.com/bruvzg/gdsdecomp). I used .pck file for unpacking my game and I successfully recovered the project files. 
 
@@ -76,7 +78,7 @@ I first approached it by Cheat Engine to get control over required variables and
 
 ```Challenge File:``` [file](/assests/CSAW/dropper.apk)
 
-This was an easy android reversing based challenge. For android reversing, I use ```jadx`` tool to view the source code. In jadx, navigate to ```com.example.dropper``` and here the code is :-
+This was an easy android reversing based challenge. For android reversing, I use ```jadx``` tool to view the source code. In jadx, navigate to ```com.example.dropper``` and here the code is :-
 
 ![source-code](/assets/CSAW/dropper1.png)
 
