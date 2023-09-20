@@ -4,9 +4,10 @@ title:  "CSAW'23 Quals"
 date:   2023-09-18 09:41:40 +0530
 
 ---
->I had the privilege of participating in the CSAW'23 Quals CTF as a member of InfosecIITR, and it proved to be a great experience. I am delighted to share the writeups for the challenges my team and I successfully solved during the competition.
+I had the privilege of participating in the CSAW'23 Quals CTF as a member of InfosecIITR, and it proved to be a great experience. I am delighted to share the writeups for the challenges my team and I successfully solved during the competition.
 
-### Rev/Rebug1
+## Reversing 
+### Rebug1
 
 ```Description:-```
 Can't seem to print out the flag :( Can you figure out how to get the flag with this binary?
@@ -14,10 +15,15 @@ Can't seem to print out the flag :( Can you figure out how to get the flag with 
 ```Challenge File:``` [file](/assests/CSAW/test.out)
 
 This challenge was beginner level reversing challenge. To see the decompiled code, open the provided binary in IDA and press F5.
+
 ![source-code](/assets/CSAW/source-code.png)
-According to the coed, the user is expected to input a 12-character string, and if the string length matches, they will receive a flag in response to the input.
+
+
+According to the code, the user is expected to input a 12-character string, and if the string length matches, they will receive a flag in response to the input.
 Now run the binary and give any 12-character input and you'll get the flag.
+
 ![rev1flag](/assets/CSAW/rev1flag.png)
+
 Flag:- ```csawctf{c20ad4d76fe97759aa27a0c99bff6710}```
 
 
