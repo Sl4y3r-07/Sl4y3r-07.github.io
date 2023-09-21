@@ -4,7 +4,7 @@ title:  "CSAW'23 Quals"
 date:   2023-09-18 09:41:40 +0530
 tags: ["reversing"]
 ---
-I had the privilege of participating in the CSAW'23 Quals CTF as a member of InfosecIITR, and it proved to be a great experience. I am delighted to share the writeups for the challenges my team and I successfully solved during the competition.
+I had the privilege of participating in the CSAW'23 Quals CTF as a member of InfosecIITR, and it proved to be a great experience. I am delighted to share the writeups for the reversing challenges my team and I successfully solved during the competition.
 
 ## Reversing 
 
