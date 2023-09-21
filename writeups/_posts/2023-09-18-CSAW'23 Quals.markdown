@@ -63,12 +63,22 @@ This game was based on game-reversing. It was a nice challenge as it made me to 
 
 First, I ran the .exe file and found the flag was only accessible after completing two levels, but main catch here was, the bullets which player was firing were not causing the damage to enemies and thus their health remained constant. So in short, game was unbeatable by human(atleast for me as I'm very bad at gaming) to get flag.
 
-I first approached it by Cheat Engine to get control over required variables and I tried searching for strings too.. but it was not of any help. Then I tried to extract files from exe itself but it was also a futile effort. Then I thought about the game-engine used:- Godot Engine. I googled about godot engine game reversing and got this helpful tool- [link](https://github.com/bruvzg/gdsdecomp). I used .pck file for unpacking my game and I successfully recovered the project files. 
+I first approached it by Cheat Engine to get control over required variables and I tried searching for strings too.. but it was not of any help. Then I tried to extract files from exe itself but it was also a futile effort. Then I thought about the game-engine used:- Godot Engine. I googled about godot engine game reversing and got this helpful tool- [link](https://github.com/bruvzg/gdsdecomp). I used .pck file for unpacking my game and successfully recovered the project files. 
 
+![level2.png](/assets/CSAW/level2.png)
 
+In level_2 script, when ```enemies_left == 0``` range of a random number generator is seeded with the value obtained from ```int(Vals.sd)``` after which random floating number is generated, ```fbytes``` is converted to string. Flag is obtained by converting ```fbytes``` to ascii followed by hex encoding. Since ```Vals.sd``` is required, so I looked in level_1 script to check whether it was being updated. Yes, in level_1, ```Vals.sd``` was storing fbytes when ```enemies_left == 0```. Initially vals.sd was set 0. The basic thing I overlooked the functionality of ```randf()``` which returns values between 0 and 1, so it does not matter whether vals.sd is updated or not because in level_2 it is casted into ```int``` type which makes it 0. 
 
+{% highlight python %}
+var rng = RandomNumberGenerator.new()
+rng.seed = 0
+var fbytes = rng.randf()
+fbytes = str(fbytes)  
+print(fbytes)
+{% endhighlight %}
 
-
+Output is ```0.202272```. For flag, convert this to ascii and then in hex, i.e., ```302e323032323732```. This is our flag.
+Flag:- ```csawctf{302e323032323732}```
 
 
 ## Misc
