@@ -2,7 +2,7 @@
 layout: post
 title:  "CSAW'23 Quals"
 date:   2023-09-18 09:41:40 +0530
-
+tags: ["reversing"]
 ---
 I had the privilege of participating in the CSAW'23 Quals CTF as a member of InfosecIITR, and it proved to be a great experience. I am delighted to share the writeups for the challenges my team and I successfully solved during the competition.
 
@@ -52,7 +52,7 @@ Now, we have almost reached to our final destination. If above conditions are me
 Flag:- ```csawctf{01011100010001110000}```
 
 
-### Impossibrwaler
+### Impossibrawler
 
 ```Description:-``` How do I beat these guys ?
 
@@ -70,11 +70,11 @@ I first approached it by Cheat Engine to get control over required variables and
 In level_2 script, when ```enemies_left == 0``` range of a random number generator is seeded with the value obtained from ```int(Vals.sd)``` after which random floating number is generated, ```fbytes``` is converted to string. Flag is obtained by converting ```fbytes``` to ascii followed by hex encoding. Since ```Vals.sd``` is required, so I looked in level_1 script to check whether it was being updated. Yes, in level_1, ```Vals.sd``` was storing fbytes when ```enemies_left == 0```. Initially vals.sd was set 0. The basic thing I overlooked the functionality of ```randf()``` which returns values between 0 and 1, so it does not matter whether vals.sd is updated or not because in level_2 it is casted into ```int``` type which makes it 0. 
 
 {% highlight python %}
-var rng = RandomNumberGenerator.new()
-rng.seed = 0
-var fbytes = rng.randf()
-fbytes = str(fbytes)  
-print(fbytes)
+ var rng = RandomNumberGenerator.new()
+ rng.seed = 0
+ var fbytes = rng.randf()
+ fbytes = str(fbytes)  
+ print(fbytes)
 {% endhighlight %}
 
 Output is ```0.202272```. For flag, convert this to ascii and then in hex, i.e., ```302e323032323732```. This is our flag.
