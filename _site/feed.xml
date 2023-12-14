@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>Sl4y3r_07</title>
   <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
-  <updated>2023-08-28T20:27:02+05:30</updated>
+  <updated>2023-12-14T05:30:21+05:30</updated>
   <author>
     <name>Ayush Goyal</name>
     <uri>http://localhost:4000/</uri>
@@ -20,21 +20,104 @@
 
   
   <entry>
-    <title>SekaiCTF 2023 - DEFCON Invitation</title>
-    <link href="http://localhost:4000/posts/welcome-to-jekyll/" rel="alternate" type="text/html" title="SekaiCTF 2023 - DEFCON Invitation" />
-    <published>2023-08-28T06:21:40+05:30</published>
+    <title>Networking - Part 1</title>
+    <link href="http://localhost:4000/posts/Networking-Part-1/" rel="alternate" type="text/html" title="Networking - Part 1" />
+    <published>2023-12-13T06:21:40+05:30</published>
   
-    <updated>2023-08-28T06:21:40+05:30</updated>
+    <updated>2023-12-13T06:21:40+05:30</updated>
   
-    <id>http://localhost:4000/posts/welcome-to-jekyll/</id>
-    <content src="http://localhost:4000/posts/welcome-to-jekyll/" />
+    <id>http://localhost:4000/posts/Networking-Part-1/</id>
+    <content src="http://localhost:4000/posts/Networking-Part-1/" />
     <author>
       <name>Ayush Goyal</name>
     </author>
 
   
     
-    <category term="writeups" />
+    <category term="Blogs" />
+    
+    <category term="Networking" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      Hey everyone! This blog covers the basics of computer networking. So let’s start with the fundamental question… Exactly what is a computer network? It’s a network of two or more two devices exchanging information and data. Let’s understand this statement with the working of multiple devices connected to a router.
+
+Most of us have routers at our homes, and multiple devices (like laptops, smartph...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>CSAW'23 Quals</title>
+    <link href="http://localhost:4000/posts/CSAW'23-Quals/" rel="alternate" type="text/html" title="CSAW&amp;apos;23 Quals" />
+    <published>2023-09-18T09:41:40+05:30</published>
+  
+    <updated>2023-09-18T09:41:40+05:30</updated>
+  
+    <id>http://localhost:4000/posts/CSAW'23-Quals/</id>
+    <content src="http://localhost:4000/posts/CSAW'23-Quals/" />
+    <author>
+      <name>Ayush Goyal</name>
+    </author>
+
+  
+    
+    <category term="Writeups" />
+    
+    <category term="Reversing" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      I had the privilege of participating in the CSAW’23 Quals CTF as a member of InfosecIITR, and it proved to be a great experience. I am delighted to share the writeups for the reversing challenges my team and I successfully solved during the competition.
+
+Reversing
+
+Rebug1
+
+Description:-
+Can’t seem to print out the flag :( Can you figure out how to get the flag with this binary?
+
+Challenge File:...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>SekaiCTF 2023 - DEFCON Invitation</title>
+    <link href="http://localhost:4000/posts/SekaiCTF-2023-DEFCON-Invitation/" rel="alternate" type="text/html" title="SekaiCTF 2023 - DEFCON Invitation" />
+    <published>2023-08-28T06:21:40+05:30</published>
+  
+    <updated>2023-08-28T06:21:40+05:30</updated>
+  
+    <id>http://localhost:4000/posts/SekaiCTF-2023-DEFCON-Invitation/</id>
+    <content src="http://localhost:4000/posts/SekaiCTF-2023-DEFCON-Invitation/" />
+    <author>
+      <name>Ayush Goyal</name>
+    </author>
+
+  
+    
+    <category term="Writeups" />
     
     <category term="Forensics" />
     

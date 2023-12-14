@@ -16,6 +16,8 @@
 <!-- `site.alt_lang` can specify a language different from the UI -->
 <html lang="en" 
   
+    data-mode="dark"
+  
 >
   <!-- The Head -->
 
@@ -45,12 +47,12 @@
 <meta property="og:url" content="http://localhost:4000/archives/" />
 <meta property="og:site_name" content="Sl4y3r_07" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-08-28T20:27:02+05:30" />
+<meta property="article:published_time" content="2023-12-14T05:30:21+05:30" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Archives" />
 <meta name="twitter:site" content="@twitter_username" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-08-28T20:27:02+05:30","datePublished":"2023-08-28T20:27:02+05:30","description":"A minimal, responsive and feature-rich Jekyll theme for technical writing.","headline":"Archives","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/archives/"},"url":"http://localhost:4000/archives/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-12-14T05:30:21+05:30","datePublished":"2023-12-14T05:30:21+05:30","description":"A minimal, responsive and feature-rich Jekyll theme for technical writing.","headline":"Archives","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/archives/"},"url":"http://localhost:4000/archives/"}</script>
 <!-- End Jekyll SEO tag -->
 
   
@@ -111,151 +113,6 @@
   
 
   <!-- JavaScript -->
-
-  
-    <!-- Switch the mode between dark and light. -->
-
-<script type="text/javascript">
-  class ModeToggle {
-    static get MODE_KEY() {
-      return 'mode';
-    }
-    static get MODE_ATTR() {
-      return 'data-mode';
-    }
-    static get DARK_MODE() {
-      return 'dark';
-    }
-    static get LIGHT_MODE() {
-      return 'light';
-    }
-    static get ID() {
-      return 'mode-toggle';
-    }
-
-    constructor() {
-      if (this.hasMode) {
-        if (this.isDarkMode) {
-          if (!this.isSysDarkPrefer) {
-            this.setDark();
-          }
-        } else {
-          if (this.isSysDarkPrefer) {
-            this.setLight();
-          }
-        }
-      }
-
-      let self = this;
-
-      /* always follow the system prefers */
-      this.sysDarkPrefers.addEventListener('change', () => {
-        if (self.hasMode) {
-          if (self.isDarkMode) {
-            if (!self.isSysDarkPrefer) {
-              self.setDark();
-            }
-          } else {
-            if (self.isSysDarkPrefer) {
-              self.setLight();
-            }
-          }
-
-          self.clearMode();
-        }
-
-        self.notify();
-      });
-    } /* constructor() */
-
-    get sysDarkPrefers() {
-      return window.matchMedia('(prefers-color-scheme: dark)');
-    }
-
-    get isSysDarkPrefer() {
-      return this.sysDarkPrefers.matches;
-    }
-
-    get isDarkMode() {
-      return this.mode === ModeToggle.DARK_MODE;
-    }
-
-    get isLightMode() {
-      return this.mode === ModeToggle.LIGHT_MODE;
-    }
-
-    get hasMode() {
-      return this.mode != null;
-    }
-
-    get mode() {
-      return sessionStorage.getItem(ModeToggle.MODE_KEY);
-    }
-
-    /* get the current mode on screen */
-    get modeStatus() {
-      if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer)) {
-        return ModeToggle.DARK_MODE;
-      } else {
-        return ModeToggle.LIGHT_MODE;
-      }
-    }
-
-    setDark() {
-      document.documentElement.setAttribute(ModeToggle.MODE_ATTR, ModeToggle.DARK_MODE);
-      sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE);
-    }
-
-    setLight() {
-      document.documentElement.setAttribute(ModeToggle.MODE_ATTR, ModeToggle.LIGHT_MODE);
-      sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE);
-    }
-
-    clearMode() {
-      document.documentElement.removeAttribute(ModeToggle.MODE_ATTR);
-      sessionStorage.removeItem(ModeToggle.MODE_KEY);
-    }
-
-    /* Notify another plugins that the theme mode has changed */
-    notify() {
-      window.postMessage(
-        {
-          direction: ModeToggle.ID,
-          message: this.modeStatus
-        },
-        '*'
-      );
-    }
-
-    flipMode() {
-      if (this.hasMode) {
-        if (this.isSysDarkPrefer) {
-          if (this.isLightMode) {
-            this.clearMode();
-          } else {
-            this.setLight();
-          }
-        } else {
-          if (this.isDarkMode) {
-            this.clearMode();
-          } else {
-            this.setDark();
-          }
-        }
-      } else {
-        if (this.isSysDarkPrefer) {
-          this.setLight();
-        } else {
-          this.setDark();
-        }
-      }
-
-      this.notify();
-    } /* flipMode() */
-  } /* ModeToggle */
-
-  const modeToggle = new ModeToggle();
-</script>
 
   
 
@@ -337,14 +194,6 @@
   <!-- ul.nav.flex-column -->
 
   <div class="sidebar-bottom d-flex flex-wrap  align-items-center w-100">
-    
-      <button class="mode-toggle btn" aria-label="Switch Mode">
-        <i class="fas fa-adjust"></i>
-      </button>
-
-      
-        <span class="icon-border"></span>
-      
     
 
     
@@ -546,11 +395,43 @@
 
   <li>
   
+    <span class="date day" data-ts="1702428700" data-df="DD">13</span>
+    <span class="date month small text-muted ms-1" data-ts="1702428700" data-df="MMM">
+      Dec
+    </span>
+    <a href="/posts/Networking-Part-1/">Networking - Part 1</a>
+  </li>
+
+  
+
+
+  
+
+  
+
+  <li>
+  
+    <span class="date day" data-ts="1695010300" data-df="DD">18</span>
+    <span class="date month small text-muted ms-1" data-ts="1695010300" data-df="MMM">
+      Sep
+    </span>
+    <a href="/posts/CSAW'23-Quals/">CSAW'23 Quals</a>
+  </li>
+
+  
+
+
+  
+
+  
+
+  <li>
+  
     <span class="date day" data-ts="1693183900" data-df="DD">28</span>
     <span class="date month small text-muted ms-1" data-ts="1693183900" data-df="MMM">
       Aug
     </span>
-    <a href="/posts/welcome-to-jekyll/">SekaiCTF 2023 - DEFCON Invitation</a>
+    <a href="/posts/SekaiCTF-2023-DEFCON-Invitation/">SekaiCTF 2023 - DEFCON Invitation</a>
   </li>
 
   </ul>
@@ -602,7 +483,71 @@
 
 
 
+  
+    
+    
+    
+    
+      
+        
+        
 
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+
+
+  <div id="access-tags">
+    <div class="panel-heading">Trending Tags</div>
+    <div class="d-flex flex-wrap mt-3 mb-1 me-3">
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/computer-networking/">Computer Networking</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/forensics/">Forensics</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/reversing/">reversing</a>
+      
+    </div>
+  </div>
 
 
     </div>
@@ -635,7 +580,71 @@
 
 
 
+  
+    
+    
+    
+    
+      
+        
+        
 
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+
+
+  <div id="access-tags">
+    <div class="panel-heading">Trending Tags</div>
+    <div class="d-flex flex-wrap mt-3 mb-1 me-3">
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/computer-networking/">Computer Networking</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/forensics/">Forensics</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/reversing/">reversing</a>
+      
+    </div>
+  </div>
 
 
     </div>

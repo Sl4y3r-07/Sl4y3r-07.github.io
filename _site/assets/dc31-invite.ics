@@ -1,0 +1,34 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//ical.marudot.com//iCal Event Maker
+CALSCALE:GREGORIAN
+BEGIN:VTIMEZONE
+TZID:America/Los_Angeles
+LAST-MODIFIED:20201011T015911Z
+TZURL:http://tzurl.org/zoneinfo-outlook/America/Los_Angeles
+X-LIC-LOCATION:America/Los_Angeles
+BEGIN:DAYLIGHT
+TZNAME:PDT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+DTSTART:19700308T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZNAME:PST
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+DTSTART:19701101T020000
+RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTAMP:20230626T035806Z
+UID:1687711861914-86293@ical.marudot.com
+DTSTART;TZID=America/Los_Angeles:20230811T100000
+DTEND;TZID=America/Los_Angeles:20230813T100000
+SUMMARY:DEF CON CTF 2023 Finals
+DESCRIPTION:<html>\n<head>\n  <title>Schedule</title>\n  <style>\n    table {\n      border-collapse: collapse\;\n      width: 100%\;\n    }\n    \n    th\, td {\n      text-align: left\;\n      padding: 8px\;\n    }\n    \n    th {\n      background-color: #f2f2f2\;\n    }\n  </style>\n</head>\n<body>\n  <h2>Schedule</h2>\n  <br/>\n  <table>\n    <tr>\n      <th>Day 1 - August 11th</th>\n    </tr>\n    <tr>\n      <td>9:00 AM - 10:00 AM</td>\n      <td>Registration and Check-in</td>\n    </tr>\n    <tr>\n      <td>10:00 AM - 11:00 AM</td>\n      <td>Opening Ceremony</td>\n    </tr>\n    <tr>\n      <td>11:00 AM - 1:00 PM</td>\n      <td>Jeopardy Round</td>\n    </tr>\n    <tr>\n      <td>1:00 PM - 4:00 PM</td>\n      <td>Attack and Defense</td>\n    </tr>\n    <tr>\n      <td>4:00 PM - 5:00 PM</td>\n      <td>King of the Hill (KotH)</td>\n    </tr>\n  </table>\n  \n  <table>\n    <tr>\n      <th>Day 2 - August 12th</th>\n    </tr>\n    <tr>\n      <td>9:00 AM - 10:00 AM</td>\n      <td>Check-in</td>\n    </tr>\n    <tr>\n      <td>10:00 AM - 1:00 PM</td>\n      <td>Semi-Finals (Jeopardy Round)</td>\n    </tr>\n    <tr>\n      <td>1:00 PM - 2:00 PM</td>\n      <td>Lunch Break</td>\n    </tr>\n    <tr>\n      <td>2:00 PM - 6:00 PM</td>\n      <td>Semi-Finals (Attack and Defense)</td>\n    </tr>\n  </table>\n  \n  <table>\n    <tr>\n      <th>Day 3 - August 13th</th>\n    </tr>\n    <tr>\n      <td>9:00 AM - 10:00 AM</td>\n      <td>Check-in</td>\n    </tr>\n    <tr>\n      <td>10:00 AM - 3:00 PM</td>\n      <td>Grand Finals</td>\n    </tr>\n    <tr>\n      <td>3:00 PM - 4:00 PM</td>\n      <td>Closing Ceremony and Awards Presentation</td>\n    </tr>\n  </table>\n  <br/>\n  Visit <a href="https://storage.googleapis.com/defcon-nautilus/venue-guide.html">Venue Maps</a> if you don't wish to get lost. You can also <a href="https://nautilus.org/">subscribe to our newsletter</a>.\n  <br/><br/>\n  <i>Nautilus Institute</i>\n</body>\n</html>
+LOCATION:Caesars Forum
+END:VEVENT
+END:VCALENDAR
