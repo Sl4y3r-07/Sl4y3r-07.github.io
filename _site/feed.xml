@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>Sl4y3r_07</title>
   <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
-  <updated>2023-12-15T19:41:29+05:30</updated>
+  <updated>2023-12-21T20:41:28+05:30</updated>
   <author>
     <name>Ayush Goyal</name>
     <uri>http://localhost:4000/</uri>
@@ -20,11 +20,51 @@
 
   
   <entry>
+    <title>Networking - Part 2</title>
+    <link href="http://localhost:4000/posts/Networking-Part-2/" rel="alternate" type="text/html" title="Networking - Part 2" />
+    <published>2023-12-15T06:21:40+05:30</published>
+  
+    <updated>2023-12-15T06:21:40+05:30</updated>
+  
+    <id>http://localhost:4000/posts/Networking-Part-2/</id>
+    <content src="http://localhost:4000/posts/Networking-Part-2/" />
+    <author>
+      <name>Ayush Goyal</name>
+    </author>
+
+  
+    
+    <category term="Blogs" />
+    
+    <category term="Networking" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      Welcome to the other part of Computer Networking. In this part, we’ll be exploring the protocols involved in networking.
+
+HTTP
+
+HTTP stands for Hypertext Tranfer Protocol. It can be defined as the foundation of communication on the web. It is an application layer protocol, used to transfer information between devices. This protocol involves various request methods and corresponding responses to...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
     <title>Networking - Part 1</title>
     <link href="http://localhost:4000/posts/Networking-Part-1/" rel="alternate" type="text/html" title="Networking - Part 1" />
     <published>2023-12-13T06:21:40+05:30</published>
   
-    <updated>2023-12-13T06:21:40+05:30</updated>
+    <updated>2023-12-15T19:51:26+05:30</updated>
   
     <id>http://localhost:4000/posts/Networking-Part-1/</id>
     <content src="http://localhost:4000/posts/Networking-Part-1/" />
