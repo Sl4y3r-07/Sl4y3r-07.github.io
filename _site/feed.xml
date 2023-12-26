@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>Sl4y3r_07</title>
   <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
-  <updated>2023-12-21T20:41:28+05:30</updated>
+  <updated>2023-12-26T22:36:16+05:30</updated>
   <author>
     <name>Ayush Goyal</name>
     <uri>http://localhost:4000/</uri>
@@ -17,6 +17,49 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>BackdoorCTF'23 Writeups</title>
+    <link href="http://localhost:4000/posts/BackdoorCTF'23-Writeups/" rel="alternate" type="text/html" title="BackdoorCTF&amp;apos;23 Writeups" />
+    <published>2023-12-23T09:41:40+05:30</published>
+  
+    <updated>2023-12-23T09:41:40+05:30</updated>
+  
+    <id>http://localhost:4000/posts/BackdoorCTF'23-Writeups/</id>
+    <content src="http://localhost:4000/posts/BackdoorCTF'23-Writeups/" />
+    <author>
+      <name>Ayush Goyal</name>
+    </author>
+
+  
+    
+    <category term="Writeups" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      I’m sharing writeups for the challenges I  created for Backdoor CTF’23, hosted by InfoSecIITR. Here they are :-
+
+Forensics/Headache
+
+Description:-
+I’ve had a headache since last evening. Is there a magic spell that can cure it immediately?
+
+Challenge File:  file
+
+This challenge was beginner level forensics challenge. A png image is given as the challenge file, which seems to be corrupted. As th...
+    </summary>
+  
+
+  </entry>
 
   
   <entry>
