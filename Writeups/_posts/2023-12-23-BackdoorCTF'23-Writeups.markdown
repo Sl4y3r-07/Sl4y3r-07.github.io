@@ -75,7 +75,7 @@ Flag:- ```flag{Th1s_time_n0t_cURs1v3}```
  ```Challenge File:``` [file](/assests/backdoor/open_sesame.apk)
  
  
-An apk file is provided as the challenge file. First open this apk in  ```JADX``` tool to see its source code. After opening the apk in Jadx, navigate to ```com.example.open_sesame.MainActivity```. This app requires UserID and Key, and if they are invalid, ```Invalid credentials. Please try again."``` will be displayed, but valid UserID and key will not display the flag. For this, understanding the code logic is must. We have few functions here : ```n4ut1lus, sh4dy, it4chi, sl4y3r and flag```.The  ```valid_password``` is ```4l1baba``` (from the given ascii codes), and ```AppCompatDelegate.FEATURE_SUPPORT_ACTION_BAR``` has a constant value 108. Now, ```it4chi``` function extracts digits from the password (4,1), ```sh4dy``` fucntion appends the digits and return as string (41) and ```sl4y3r``` function subtracts 1 from the number (40). Now, in ```flag``` function, ```U|]rURuoU^PoR_FDMo@X]uBUg``` is xored with ```40```. This will give us the flag.
+An apk file is provided as the challenge file. First open this apk in  ```JADX``` tool to see its source code. After opening the apk in Jadx, navigate to ```com.example.open_sesame.MainActivity```. This app requires UserID and Key, and if they are invalid, ```Invalid credentials. Please try again."``` will be displayed, but valid UserID and key will not display the flag. For this, understanding the code logic is must. We have few functions here : ```n4ut1lus, sh4dy, it4chi, sl4y3r and flag```.The  ```valid_password``` is ```4l1baba``` (from the given ascii codes), and ```AppCompatDelegate.FEATURE_SUPPORT_ACTION_BAR``` has a constant value 108. Now, ```it4chi``` function extracts digits from the password (4,1), ```sh4dy``` function appends the digits and return as string (41) and ```sl4y3r``` function subtracts 1 from the number (40). Now, in ```flag``` function, ```U|]rURuoU^PoR_FDMo@X]uBUg``` is xored with ```40```. This will give us the flag.
  
  ![open](/assets/backdoor/open.png)
 
@@ -96,7 +96,7 @@ This challenge is based on dynamic debugging of Android Application. Open the ap
 
 So, the implementation of these methods are in native library. Extract the library by either unzipping it or using ```apktool```. So ```libsl4ydroid.so``` will be extracted in lib/ folder. Open it in IDA or any other debugging software (I personally prefer IDA) and try to reverse the code. To get the flag, there are more than one approaches that can be followed. I'll discuss few of them here. First, flag can be found by ```static analysis``` but that can be bit complex and time consuming process. If we look at the pseudo code, we can clearly see that it involves a ```RC4``` function: ```ring```. So this hints, we should debug it dynamically. To do dyanmic analysis, we have to set up ```Remote Android Debugger```. For this, either use emulator or your own android device (provided developer mode is on). Through ```adb```, install the apk and start android server (There are many blogs explaining this process, though it is applicable for IDA pro). After successfully setting up the debugger, attach the process (of this apk) and debug the code dynamically now. 
 
-This process seems bit lengthy and sometimes it can be bit uncertain (as I have gone through it often:) ). Interesting thing to notice in the code is ```System.out.println(message)``` under the functions ```sh4dy, sl4y3r, it4chi and n4ut1lus```. It might be possible that these methods are being called from native methods using JNI (can be viewed in IDA). Let's try to log these results. For this, we use JADX debugger, launch the app on emulator or own device and click ```Launch App```. In ```logcat```, we have our flag.
+This process seems bit lengthy and sometimes it can be bit uncertain (as I have gone through it often:) ). Interesting thing to notice in the code is ```System.out.println(message)``` under the functions ```sh4dy, sl4y3r, it4chi and n4ut1lus```. It might be possible that these methods are being called from native methods using JNI (can be viewed in IDA). Let's try to log these results. For this, we use JADX debugger, launch the app on emulator or own device and click ```Launch App```. In ```logcat```, we have our flag. This challenge has surely got some Rizz :)
  ![adb](/assets/backdoor/adb.png)
  
  ![flag](/assets/backdoor/jadx.png)
@@ -106,5 +106,5 @@ Flag:- ```flag{RizZZ! Rc4_R3v3r51Ngg_RrR!:}```
 
 
 
-
+Hope !! You all enjoyed the challenges. 
 
