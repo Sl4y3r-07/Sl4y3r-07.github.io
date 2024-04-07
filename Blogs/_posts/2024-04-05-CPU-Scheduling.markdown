@@ -2,7 +2,7 @@
 layout: post
 title:  "CPU Scheduling"
 date:   2024-04-05 06:21:40 +0530
-categories: Operating Systems
+categories: "Operating Systems"
 tags: ["Operating Systems","Computer Science"]
 ---
 Hey everyone! This article is about how CPU schedules the processes and executes them, covering various scheduling algorithms. It consists of my notes which I prepared while studying this topic from  operating systems textbook by Silberschatz and Galvin. So let's start:
