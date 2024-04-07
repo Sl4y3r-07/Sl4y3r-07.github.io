@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>Sl4y3r_07</title>
   <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
-  <updated>2023-12-26T22:51:11+05:30</updated>
+  <updated>2024-04-07T10:51:32+05:30</updated>
   <author>
     <name>Ayush Goyal</name>
     <uri>http://localhost:4000/</uri>
@@ -13,10 +13,53 @@
   <link rel="alternate" type="text/html" hreflang="en"
     href="http://localhost:4000/"/>
   <generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator>
-  <rights> © 2023 Ayush Goyal </rights>
+  <rights> © 2024 Ayush Goyal </rights>
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>CPU Scheduling</title>
+    <link href="http://localhost:4000/posts/CPU-Scheduling/" rel="alternate" type="text/html" title="CPU Scheduling" />
+    <published>2024-04-05T06:21:40+05:30</published>
+  
+    <updated>2024-04-05T06:21:40+05:30</updated>
+  
+    <id>http://localhost:4000/posts/CPU-Scheduling/</id>
+    <content src="http://localhost:4000/posts/CPU-Scheduling/" />
+    <author>
+      <name>Ayush Goyal</name>
+    </author>
+
+  
+    
+    <category term="Blogs" />
+    
+    <category term="Operating" />
+    
+    <category term="Systems" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      Hey everyone! This article is about how CPU schedules the processes and executes them, covering various scheduling algorithms. It consists of my notes which I prepared while studying this topic from  operating systems textbook by Silberschatz and Galvin. So let’s start:
+
+CPU-I/O burst cycle
+
+  process execution consists of a cycle of CPU execution and I/O wait.
+  process alternate between these...
+    </summary>
+  
+
+  </entry>
 
   
   <entry>
@@ -24,7 +67,7 @@
     <link href="http://localhost:4000/posts/BackdoorCTF'23-Writeups/" rel="alternate" type="text/html" title="BackdoorCTF&amp;apos;23 Writeups" />
     <published>2023-12-23T09:41:40+05:30</published>
   
-    <updated>2023-12-23T09:41:40+05:30</updated>
+    <updated>2023-12-26T22:51:26+05:30</updated>
   
     <id>http://localhost:4000/posts/BackdoorCTF'23-Writeups/</id>
     <content src="http://localhost:4000/posts/BackdoorCTF'23-Writeups/" />
@@ -179,47 +222,6 @@ Description:-
 Can’t seem to print out the flag :( Can you figure out how to get the flag with this binary?
 
 Challenge File:...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>SekaiCTF 2023 - DEFCON Invitation</title>
-    <link href="http://localhost:4000/posts/SekaiCTF-2023-DEFCON-Invitation/" rel="alternate" type="text/html" title="SekaiCTF 2023 - DEFCON Invitation" />
-    <published>2023-08-28T06:21:40+05:30</published>
-  
-    <updated>2023-08-28T06:21:40+05:30</updated>
-  
-    <id>http://localhost:4000/posts/SekaiCTF-2023-DEFCON-Invitation/</id>
-    <content src="http://localhost:4000/posts/SekaiCTF-2023-DEFCON-Invitation/" />
-    <author>
-      <name>Ayush Goyal</name>
-    </author>
-
-  
-    
-    <category term="Writeups" />
-    
-    <category term="Forensics" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      Description:-
-As you all know, DEF CON CTF Qualifier 2023 was really competitive and we didn’t make it. Surprisingly, 2 months before the finals in Las Vegas, we received an official invitation from Nautilus Institute to attend the event. Should we accept the invitation and schedule the trip?
-
-Challenge File: file
-
-In this challenge, a .eml file is provided which is commonly used for storing em...
     </summary>
   
 

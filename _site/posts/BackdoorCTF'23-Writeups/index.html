@@ -52,7 +52,7 @@
 <meta property="twitter:title" content="BackdoorCTF’23 Writeups" />
 <meta name="twitter:site" content="@twitter_username" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-12-23T09:41:40+05:30","datePublished":"2023-12-23T09:41:40+05:30","description":"I’m sharing writeups for the challenges I created for Backdoor CTF’23, hosted by InfoSecIITR. Here they are :-","headline":"BackdoorCTF’23 Writeups","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/BackdoorCTF'23-Writeups/"},"url":"http://localhost:4000/posts/BackdoorCTF'23-Writeups/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-12-26T22:51:26+05:30","datePublished":"2023-12-23T09:41:40+05:30","description":"I’m sharing writeups for the challenges I created for Backdoor CTF’23, hosted by InfoSecIITR. Here they are :-","headline":"BackdoorCTF’23 Writeups","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/BackdoorCTF'23-Writeups/"},"url":"http://localhost:4000/posts/BackdoorCTF'23-Writeups/"}</script>
 <!-- End Jekyll SEO tag -->
 
   
@@ -1022,6 +1022,30 @@
 
     <!-- lastmod date -->
     
+    <span>
+      Updated
+      <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+
+<em
+  class=""
+  data-ts="1703611286"
+  data-df="ll"
+  
+    data-bs-toggle="tooltip" data-bs-placement="bottom"
+  
+>
+  Dec 26, 2023
+</em>
+
+    </span>
+    
 
   
 
@@ -1307,6 +1331,13 @@ I was offered a famous Italian drink along with a message, but it affected me in
         
         
         <li class="text-truncate lh-lg">
+          <a href="/posts/BackdoorCTF'23-Writeups/">BackdoorCTF'23 Writeups</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/posts/Networking-Part-1/">Networking - Part 1</a>
         </li>
       
@@ -1352,29 +1383,6 @@ I was offered a famous Italian drink along with a message, but it affected me in
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
   
     
     
@@ -1389,10 +1397,102 @@ I was offered a famous Italian drink along with a message, but it affected me in
     
     
     
+      
+    
   
     
     
     
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
     
   
     
@@ -1417,6 +1517,12 @@ I was offered a famous Italian drink along with a message, but it affected me in
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/reversing/">reversing</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/computer-science/">Computer Science</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/operating-systems/">Operating Systems</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/osi-model/">OSI model</a>
@@ -1468,6 +1574,18 @@ I was offered a famous Italian drink along with a message, but it affected me in
 
 
 
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 
   
 
@@ -1530,9 +1648,6 @@ I was offered a famous Italian drink along with a message, but it affected me in
 
 
 
-  
-    
-    
   
     
     
@@ -1633,7 +1748,7 @@ As you all know, DEF CON CTF Qualifier 2023 was really competitive and we didn�
         
         
         <div class="col">
-          <a href="/posts/Networking-Part-2/" class="card post-preview h-100">
+          <a href="/posts/CPU-Scheduling/" class="card post-preview h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -1646,14 +1761,14 @@ As you all know, DEF CON CTF Qualifier 2023 was really competitive and we didn�
 
 <em
   class="small"
-  data-ts="1702601500"
+  data-ts="1712278300"
   data-df="ll"
   
 >
-  Dec 15, 2023
+  Apr  5, 2024
 </em>
 
-              <h4 class="pt-0 my-2" data-toc-skip>Networking - Part 2</h4>
+              <h4 class="pt-0 my-2" data-toc-skip>CPU Scheduling</h4>
               <div class="text-muted small">
                 <p>
                   
@@ -1662,11 +1777,7 @@ As you all know, DEF CON CTF Qualifier 2023 was really competitive and we didn�
 
 
 
-                  Welcome to the other part of Computer Networking. In this part, we’ll be exploring the protocols involved in networking.
-
-HTTP
-
-HTTP stands for Hypertext Tranfer Protocol. It can be defined as the ...
+                  Hey everyone! This article is about how CPU schedules the processes and executes them, covering various scheduling algorithms. It consists of my notes which I prepared while studying this topic fro...
                 </p>
               </div>
             </div>
@@ -1695,12 +1806,13 @@ HTTP stands for Hypertext Tranfer Protocol. It can be defined as the ...
   
 
   
-    <div
-      class="btn btn-outline-primary disabled"
+    <a
+      href="/posts/CPU-Scheduling/"
+      class="btn btn-outline-primary"
       prompt="Newer"
     >
-      <p>-</p>
-    </div>
+      <p>CPU Scheduling</p>
+    </a>
   
 </div>
 
@@ -1756,29 +1868,6 @@ HTTP stands for Hypertext Tranfer Protocol. It can be defined as the ...
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
   
     
     
@@ -1793,10 +1882,102 @@ HTTP stands for Hypertext Tranfer Protocol. It can be defined as the ...
     
     
     
+      
+    
   
     
     
     
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
     
   
     
@@ -1823,6 +2004,12 @@ HTTP stands for Hypertext Tranfer Protocol. It can be defined as the ...
         <a class="post-tag btn btn-outline-primary" href="/tags/reversing/">reversing</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/computer-science/">Computer Science</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/operating-systems/">Operating Systems</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/osi-model/">OSI model</a>
       
     </div>
@@ -1846,7 +2033,7 @@ HTTP stands for Hypertext Tranfer Protocol. It can be defined as the ...
       </p>
 
       <p>©
-        2023
+        2024
         <a href="https://twitter.com/username">Ayush Goyal</a>.
         
           <span
