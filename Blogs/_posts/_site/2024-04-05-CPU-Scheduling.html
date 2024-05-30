@@ -1,0 +1,254 @@
+<p>Hey everyone! This article is about how CPU schedules the processes and executes them, covering various scheduling algorithms. It consists of my notes which I prepared while studying this topic from  operating systems textbook by Silberschatz and Galvin. So let’s start:</p>
+
+<h3 id="cpu-io-burst-cycle">CPU-I/O burst cycle</h3>
+<ul>
+  <li>process execution consists of a cycle of <code class="language-plaintext highlighter-rouge">CPU execution</code> and <code class="language-plaintext highlighter-rouge">I/O wait</code>.</li>
+  <li>process alternate between these two states.</li>
+  <li>process execution begins with <code class="language-plaintext highlighter-rouge">CPU burst</code> and followed by <code class="language-plaintext highlighter-rouge">I/O burst</code>, and cycle continues.</li>
+  <li>An I/O-bound program typically has many short CPU bursts. A CPU-bound program might have a few long CPU bursts</li>
+</ul>
+
+<h3 id="cpu-scheduling">CPU Scheduling</h3>
+<ul>
+  <li>Whenever the CPU becomes idle, the OS must select one of the process in the ready queue which is to be allocated to the CPU by CPU scheduler.</li>
+  <li><code class="language-plaintext highlighter-rouge">Scheduler</code>: Its job is to decide which processes should be allowed to use the CPU and for how long, and schedules into the ready queue and later dispatched for execution by the <code class="language-plaintext highlighter-rouge">dispatcher</code>.</li>
+</ul>
+
+<h3 id="preemptive-scheduling">Preemptive Scheduling</h3>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"> <span class="no">Pre</span><span class="o">-</span><span class="n">emptive</span> <span class="p">:</span> <span class="no">A</span> <span class="n">running</span> <span class="n">process</span> <span class="ow">or</span> <span class="n">thread</span> <span class="n">can</span> <span class="n">be</span> <span class="n">interrupted</span> <span class="ow">and</span> <span class="n">moved</span> <span class="n">out</span> <span class="n">of</span> <span class="n">the</span> <span class="no">CPU</span> <span class="n">to</span> <span class="n">allow</span> <span class="n">another</span> <span class="n">process</span> <span class="ow">or</span> <span class="n">thread</span> <span class="n">to</span> <span class="n">execute</span></code></pre></figure>
+
+<ul>
+  <li>There are four circumstances where decision is to be taken for CPU rescheduling, when:
+    <ol>
+      <li>Running State to waiting State</li>
+      <li>Waiting State to Ready State</li>
+      <li>Running State to Ready State</li>
+      <li>Process terminates</li>
+    </ol>
+  </li>
+  <li>
+    <p>Scheduling Scheme for 1 and 4 is <code class="language-plaintext highlighter-rouge">non preemptive</code>. Unfortunately, preemptive scheduling can result in <code class="language-plaintext highlighter-rouge">race conditions</code> when data are shared among several processes.</p>
+  </li>
+  <li>Preemption also affects the design of the operating-system kernel.</li>
+</ul>
+
+<h3 id="dispatcher">Dispatcher</h3>
+<ul>
+  <li>
+    <p>The dispatcher is the module that gives control of the CPU to the process selected by the short-term scheduler</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">Dispatch Latency</code> : The time between stopping a process and starting another process.</p>
+  </li>
+  <li>
+    <p>Dispatcher should be fast as much as possible.</p>
+  </li>
+  <li>
+    <p>Its functions are :</p>
+    <ol>
+      <li>Context Switching</li>
+      <li>Switching to user mode</li>
+      <li>Jumping from one location in the program to restart it. [The dispatcher needs to set the program counter (PC) to the appropriate location in the user program, allowing the selected process to resume its execution from where it was previously interrupted]</li>
+    </ol>
+  </li>
+</ul>
+
+<p><img src="../../assets/CPU_scheduling/img2.png" alt="img2" /></p>
+
+<h3 id="scheduling-criteria">Scheduling Criteria</h3>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">Throughput</code> : number of processes per unit time</li>
+  <li><code class="language-plaintext highlighter-rouge">Turnaround</code> : total time from waiting to completion</li>
+  <li><code class="language-plaintext highlighter-rouge">Response Time</code> : time from submission of the request till first response</li>
+  <li><code class="language-plaintext highlighter-rouge">Waiting Time</code> :  the sum of the periods spent waiting in the ready queue</li>
+</ol>
+
+<h3 id="scheduling-algorithms">Scheduling Algorithms</h3>
+<h4 id="first-come-first-served-scheduling-fcfs">First Come, First Served Scheduling (FCFS)</h4>
+<ul>
+  <li>
+    <p>With this scheme, the process that requests the CPU first is allocated the CPU first. The implementation of the FCFS policy is easily managed with a <code class="language-plaintext highlighter-rouge">FIFO queue</code>. When a process enters the ready queue, its PCB is linked onto the tail of the queue. When the CPU is free, it is allocated to the process at the head of the queue. The running process is then removed from the queue.</p>
+  </li>
+  <li>
+    <p>The average waiting time under an FCFS policy is generally not minimal and may vary substantially if the 
+   processes’ CPU burst times vary greatly.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">Convoy Effect</code>: The effect due to which short processes are delayed by longer processes ahead of them in the queue.</p>
+  </li>
+</ul>
+
+<h4 id="shortest-job-first-scheduling">Shortest Job-First Scheduling</h4>
+<ul>
+  <li>In this scheduling algo, CPU is assigned to the process that has the smallest next CPU burst. If the next CPU bursts of two processes are the same, FCFS scheduling is used to break the tie.</li>
+  <li>The real difficulty with the <code class="language-plaintext highlighter-rouge">SJF algorithm</code> is knowing the length of the next CPU request. For long-term (job) scheduling in a batch system, we can use the process time limit that a user specifies when he submits the job. In this situation, users are motivated to estimate the process time limit accurately, since a lower value may mean faster response but too low a value will cause a time-limit-exceeded error and require resubmission. SJF scheduling is used frequently in long-term scheduling.</li>
+  <li>To predict next CPU-cycle burst, we can use <code class="language-plaintext highlighter-rouge">exponential average</code> formula.</li>
+  <li><code class="language-plaintext highlighter-rouge">τ(n+1) = α. Tn + (1-α) . τ(n)</code></li>
+  <li>The SJF algorithm can be either <code class="language-plaintext highlighter-rouge">preemptive</code> or <code class="language-plaintext highlighter-rouge">nonpreemptive</code></li>
+  <li><code class="language-plaintext highlighter-rouge">Preemptive SJF</code> scheduling is sometimes called <code class="language-plaintext highlighter-rouge">shortest-remaining-time-first scheduling</code>.</li>
+</ul>
+
+<h4 id="priority-algorithm">Priority Algorithm</h4>
+<ul>
+  <li>The SJF algorithm is a special case of the general <code class="language-plaintext highlighter-rouge">priority-scheduling</code> algorithm.</li>
+  <li>An SJF algorithm is simply a priority algorithm where the priority (p) is theinverse of the (predicted) next CPU burst. The larger the CPU burst, the lower the priority, and vice versa.</li>
+  <li>Priority scheduling can be either <code class="language-plaintext highlighter-rouge">preemptive or nonpreemptive</code>.</li>
+  <li>Problem with priority scheduling algorithms is <code class="language-plaintext highlighter-rouge">indefinite blocking, or starvation</code>. A process that is ready to run but waiting for the CPU can be considered blocked. A priority scheduling algorithm can leave some low priority processes waiting indefinitely.</li>
+  <li>Solution to this problem is <code class="language-plaintext highlighter-rouge">aging</code>. That means, priority is increased by 1 in very 15 minutes.</li>
+</ul>
+
+<h4 id="round-robin-algorithm">Round-Robin Algorithm</h4>
+<ul>
+  <li>This algo is <code class="language-plaintext highlighter-rouge">preemptive</code></li>
+  <li>A small unit of time, called a <code class="language-plaintext highlighter-rouge">time quantum</code> or <code class="language-plaintext highlighter-rouge">time slice</code>, is defined. A time quantum is generally from 10 to 100 milliseconds in length.</li>
+  <li>In the RR scheduling algorithm, no process is allocated the CPU for more than 1 time quantum in a row.</li>
+</ul>
+
+<h4 id="multilevel-queue-scheduling">Multilevel Queue Scheduling</h4>
+<ul>
+  <li>Five queues, listed below in order of priority:
+    <ol>
+      <li>System processes</li>
+      <li>Interactive processes</li>
+      <li>Interactive editing processes</li>
+      <li>Batch processes</li>
+      <li>Student processes</li>
+    </ol>
+  </li>
+  <li>The foreground queue might be scheduled by an <code class="language-plaintext highlighter-rouge">RR algorithm</code>, while the background queue is scheduled by an <code class="language-plaintext highlighter-rouge">FCFS algorithm</code>.
+   <img src="../../assets/CPU_scheduling/img1.png" alt="img1" /></li>
+</ul>
+
+<h4 id="multilevel-feedback-queue-scheduling">Multilevel Feedback Queue Scheduling</h4>
+<ul>
+  <li>It allows processes to move between queues which makes it flexible, whereas previous algo was not flexible.</li>
+  <li>If a process uses too much CPU time, it will be moved to a lower-priority queue.</li>
+  <li>In general, a multilevel feedback queue scheduler is defined by the following parameters:
+    <ol>
+      <li>The number of queues</li>
+      <li>The scheduling algorithm for each queue</li>
+      <li>The method used to determine when to upgrade a process to a higher priority queue</li>
+      <li>The method used to determine when to demote a process to a lower priority queue</li>
+      <li>The method used to determine which queue a process will enter when that process needs service</li>
+    </ol>
+  </li>
+</ul>
+
+<h3 id="thread-scheduling">Thread Scheduling</h3>
+<h4 id="contention-scope">Contention Scope</h4>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">process contention scope</code> : in this scheme, thread library schedules user-level threads to run on available LWP.</li>
+  <li><code class="language-plaintext highlighter-rouge">system contention scope</code>: In this scheme, kernel level threads are scheduled to be run on the CPU.</li>
+</ul>
+
+<h4 id="posix-scheduling">POSIX Scheduling</h4>
+<ul>
+  <li>uses <code class="language-plaintext highlighter-rouge">pthreads</code></li>
+  <li><code class="language-plaintext highlighter-rouge">pthread_scope_system</code> &amp; <code class="language-plaintext highlighter-rouge">pthread_scope_process</code></li>
+  <li>pthread IPC provides two functions for setting and getting the contention scope policy:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">pthread attr setscope(pthread attr t *attr, int scope)</code></li>
+      <li><code class="language-plaintext highlighter-rouge">pthread attr getscope(pthread attr t *attr, int *scope)</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="multiprocessor-scheduling">Multiprocessor Scheduling</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Assymmetric multiprocessing</code>: Involves a <code class="language-plaintext highlighter-rouge">master processor</code> that has all scheduling descisions, I/O processing and other accesses, while other processors runs the user code only. It is <code class="language-plaintext highlighter-rouge">simple</code></li>
+  <li><code class="language-plaintext highlighter-rouge">Symmetric multiprocessing</code>: It is bit complex. Each processor is self-scheduling</li>
+</ul>
+
+<h4 id="processor-affinity">Processor Affinity</h4>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">processor affinity</code> is about keeping certain tasks or processes consistently assigned to specific processors, aiming to improve efficiency and overall system performance.</li>
+  <li>related to cache memory which makes processes faster to execute on CPU.
+    <ol>
+      <li><code class="language-plaintext highlighter-rouge">Soft Affinity</code> :  In soft affinity, a process or thread is recommended to run on a specific processor or a set of processors, but it is not strictly enforced.</li>
+      <li><code class="language-plaintext highlighter-rouge">Hard Affinity</code> : In hard affinity, a process or thread is strictly bound to execute on a specific processor or a set of processors.</li>
+    </ol>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">sched setaffinity()</code> system call : can set hard affinity</li>
+</ul>
+
+<h4 id="load-balancing">Load Balancing</h4>
+<ul>
+  <li>It attempts to keep the workload evenly distributed across all processors in an SMP system.</li>
+  <li>Two general approaches to load balancing :
+    <ol>
+      <li><code class="language-plaintext highlighter-rouge">Push Migration</code> : If found imbalance on one processor, it migrated some load on other processors.</li>
+      <li><code class="language-plaintext highlighter-rouge">Pull Migration</code> : When an idle processor pulls some load from a busy processor.</li>
+    </ol>
+  </li>
+</ul>
+
+<h5 id="memory-stall">Memory Stall</h5>
+<ul>
+  <li>A <code class="language-plaintext highlighter-rouge">memory stall</code> refers to a situation in a computer system where the CPU (Central Processing Unit) has to wait for data to be fetched from the memory before it can proceed with its execution. Memory stalls can occur due to various reasons, and they often result in a temporary delay in the execution of instructions.
+    <ol>
+      <li><code class="language-plaintext highlighter-rouge">Cache Miss</code>:  A cache miss occurs when the CPU needs data that is not in the cache.</li>
+      <li><code class="language-plaintext highlighter-rouge">Memory Latency</code>: accessing data from main memory can introduce latency.</li>
+      <li><code class="language-plaintext highlighter-rouge">Data Dependencies</code>: the execution of instructions is dependent on the availability of data.</li>
+      <li><code class="language-plaintext highlighter-rouge">Memory Bus Saturation</code>: is responsible for transferring data between the CPU and RAM, is saturated or experiencing high traffic, it can lead to delays in data transfer, resulting in memory stalls.</li>
+    </ol>
+  </li>
+  <li>Two multithreading approaches:
+    <ol>
+      <li><code class="language-plaintext highlighter-rouge">Coarse-grained</code>: Cost of thread switching is high here. Instruction pipeline must be flused out before switching to othere thread on a processor.</li>
+      <li><code class="language-plaintext highlighter-rouge">Fine-grained</code>: Cost of thread switching is low.</li>
+    </ol>
+  </li>
+</ul>
+
+<h3 id="real-time-cpu-scheduling">Real Time CPU Scheduling</h3>
+<ul>
+  <li>
+    <p>Hard and Soft Real-Time Systems: <code class="language-plaintext highlighter-rouge">Hard real-time</code> systems have strict and non-negotiable timing requirements. Missing deadline in a hard real-time system is considered a system failure. <code class="language-plaintext highlighter-rouge">Soft real-time</code> system have timing constraints that are important but not critical; missing a deadline may no lead to catastrophic failure.</p>
+  </li>
+  <li>Two types of latencies affect the performance of real-time systems:
+    <ol>
+      <li>Interrupt Latency</li>
+      <li>Dispatch Latency</li>
+    </ol>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">Interrupt Latency</code>: from the arrival of an interrupt at the CPU to the start of the routine that services the interrupt.
+    First, OS completes the instruction which it was running, then, it determines the type of interrupt and then it saves the state before servicing the interrupt.</li>
+  <li><code class="language-plaintext highlighter-rouge">ISR</code> : Interrupt Service Routine, a software routine, executed in response to the interrupt signal generated by hardware or software.</li>
+  <li><code class="language-plaintext highlighter-rouge">Dispatch Latency</code>: from the arrival of an interrupt at the CPU to the start of the routine that services the interrupt.</li>
+  <li>It uses preemptive kernels.
+ <img src="../../assets/CPU_scheduling/img3.png" alt="img3" /></li>
+</ul>
+
+<h4 id="priority-based--scheduling">Priority Based  Scheduling</h4>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">admission-approval</code>: In this scheduler either admits the process, guaranteeing that the process will complete on time, or rejects the request as impossible if it cannot guarantee that the task will be serviced by its deadline.</li>
+</ul>
+
+<h4 id="rate-monotic-scheduling">Rate-Monotic scheduling</h4>
+<ul>
+  <li>uses static priority policy with preemption.</li>
+  <li>Uponentering the system, each periodic task is assigned a priority inversely based on its period.</li>
+  <li>rate-monotonic scheduling assumes that the processing time of a periodic process is the same for each CPU burst. That is, every time a process acquires the CPU, the duration of its CPU burst is the same.</li>
+  <li>This method may or may not guarantee that the processes will meet their deadlines.</li>
+  <li>It tries to schedule the processes in such a way that a process meets its deadline.</li>
+  <li>Shorter the period, higher the priority.</li>
+</ul>
+
+<h4 id="earliest-deadline-first-scheduling">Earliest Deadline First Scheduling</h4>
+<ul>
+  <li>This scheduling method assigns priorities based on the deadlines.</li>
+  <li><code class="language-plaintext highlighter-rouge">Shorter the deadline, higher the priority.</code></li>
+  <li>Unlike the rate-monotonic algorithm, EDF scheduling does not require that processes be periodic, nor must a process require a constant amount of CPU time per burst.</li>
+  <li>The only requirement is that a process announce its deadline to the scheduler when it becomes runnable</li>
+  <li>Achieving 100% cpu utilisation is impossible, because of the cost of context switching and interrupt handling.</li>
+</ul>
+
+<h4 id="proportional-share-scheduling">Proportional Share Scheduling</h4>
+<ul>
+  <li>In this type, processes are allocated N shares of total T shares of time.</li>
+  <li>Its schedulers work in conjunction with <code class="language-plaintext highlighter-rouge">admission-policy</code>.</li>
+</ul>
+
+<p>Finally, it’s time to wrap up. Thank you for your attention. Hope you like this blog.</p>

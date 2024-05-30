@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>Sl4y3r_07</title>
   <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
-  <updated>2024-04-07T11:01:06+05:30</updated>
+  <updated>2024-05-31T02:29:37+05:30</updated>
   <author>
     <name>Ayush Goyal</name>
     <uri>http://localhost:4000/</uri>
@@ -20,11 +20,47 @@
 
   
   <entry>
+    <title>Piping Process In Shell</title>
+    <link href="http://localhost:4000/posts/Piping-Process-In-Shell/" rel="alternate" type="text/html" title="Piping Process In Shell" />
+    <published>2024-05-30T06:21:40+05:30</published>
+  
+    <updated>2024-05-30T06:21:40+05:30</updated>
+  
+    <id>http://localhost:4000/posts/Piping-Process-In-Shell/</id>
+    <content src="http://localhost:4000/posts/Piping-Process-In-Shell/" />
+    <author>
+      <name>Ayush Goyal</name>
+    </author>
+
+  
+    
+    <category term="Blogs" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      Hey everyone! Welcome back to my blog series. Recently, I’ve been dedicating time to my basic my-shell project, where I’m working on implementing a shell in C++. While doing so, I got stuck in adding piping functionality. In this blog, I will be explaining the piping process. So, let’s start with the fundamental question, what is piping?
+
+A mechanism or a process through which the output of a c...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
     <title>CPU Scheduling</title>
     <link href="http://localhost:4000/posts/CPU-Scheduling/" rel="alternate" type="text/html" title="CPU Scheduling" />
     <published>2024-04-05T06:21:40+05:30</published>
   
-    <updated>2024-04-07T10:57:54+05:30</updated>
+    <updated>2024-04-08T04:01:53+05:30</updated>
   
     <id>http://localhost:4000/posts/CPU-Scheduling/</id>
     <content src="http://localhost:4000/posts/CPU-Scheduling/" />
@@ -35,6 +71,8 @@
   
     
     <category term="Blogs" />
+    
+    <category term="OperatingSystems" />
     
   
 
@@ -173,51 +211,6 @@ HTTP stands for Hypertext Tranfer Protocol. It can be defined as the foundation 
       Hey everyone! This blog covers the basics of computer networking. So let’s start with the fundamental question… Exactly what is a computer network? It’s a network of two or more two devices exchanging information and data. Let’s understand this statement with the working of multiple devices connected to a router.
 
 Most of us have routers at our homes, and multiple devices (like laptops, smartph...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>CSAW'23 Quals</title>
-    <link href="http://localhost:4000/posts/CSAW'23-Quals/" rel="alternate" type="text/html" title="CSAW&amp;apos;23 Quals" />
-    <published>2023-09-18T09:41:40+05:30</published>
-  
-    <updated>2023-09-18T09:41:40+05:30</updated>
-  
-    <id>http://localhost:4000/posts/CSAW'23-Quals/</id>
-    <content src="http://localhost:4000/posts/CSAW'23-Quals/" />
-    <author>
-      <name>Ayush Goyal</name>
-    </author>
-
-  
-    
-    <category term="Writeups" />
-    
-    <category term="Reversing" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      I had the privilege of participating in the CSAW’23 Quals CTF as a member of InfosecIITR, and it proved to be a great experience. I am delighted to share the writeups for the reversing challenges my team and I successfully solved during the competition.
-
-Reversing
-
-Rebug1
-
-Description:-
-Can’t seem to print out the flag :( Can you figure out how to get the flag with this binary?
-
-Challenge File:...
     </summary>
   
 

@@ -39,25 +39,25 @@
   
     <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.3.2" />
-<meta property="og:title" content="CSAW’23 Quals" />
+<meta property="og:title" content="Piping Process In Shell" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="I had the privilege of participating in the CSAW’23 Quals CTF as a member of InfosecIITR, and it proved to be a great experience. I am delighted to share the writeups for the reversing challenges my team and I successfully solved during the competition." />
-<meta property="og:description" content="I had the privilege of participating in the CSAW’23 Quals CTF as a member of InfosecIITR, and it proved to be a great experience. I am delighted to share the writeups for the reversing challenges my team and I successfully solved during the competition." />
-<link rel="canonical" href="http://localhost:4000/posts/CSAW'23-Quals/" />
-<meta property="og:url" content="http://localhost:4000/posts/CSAW'23-Quals/" />
+<meta name="description" content="Hey everyone! Welcome back to my blog series. Recently, I’ve been dedicating time to my basic my-shell project, where I’m working on implementing a shell in C++. While doing so, I got stuck in adding piping functionality. In this blog, I will be explaining the piping process. So, let’s start with the fundamental question, what is piping?" />
+<meta property="og:description" content="Hey everyone! Welcome back to my blog series. Recently, I’ve been dedicating time to my basic my-shell project, where I’m working on implementing a shell in C++. While doing so, I got stuck in adding piping functionality. In this blog, I will be explaining the piping process. So, let’s start with the fundamental question, what is piping?" />
+<link rel="canonical" href="http://localhost:4000/posts/Piping-Process-In-Shell/" />
+<meta property="og:url" content="http://localhost:4000/posts/Piping-Process-In-Shell/" />
 <meta property="og:site_name" content="Sl4y3r_07" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-09-18T09:41:40+05:30" />
+<meta property="article:published_time" content="2024-05-30T06:21:40+05:30" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="CSAW’23 Quals" />
+<meta property="twitter:title" content="Piping Process In Shell" />
 <meta name="twitter:site" content="@twitter_username" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-09-18T09:41:40+05:30","datePublished":"2023-09-18T09:41:40+05:30","description":"I had the privilege of participating in the CSAW’23 Quals CTF as a member of InfosecIITR, and it proved to be a great experience. I am delighted to share the writeups for the reversing challenges my team and I successfully solved during the competition.","headline":"CSAW’23 Quals","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/CSAW'23-Quals/"},"url":"http://localhost:4000/posts/CSAW'23-Quals/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-05-30T06:21:40+05:30","datePublished":"2024-05-30T06:21:40+05:30","description":"Hey everyone! Welcome back to my blog series. Recently, I’ve been dedicating time to my basic my-shell project, where I’m working on implementing a shell in C++. While doing so, I got stuck in adding piping functionality. In this blog, I will be explaining the piping process. So, let’s start with the fundamental question, what is piping?","headline":"Piping Process In Shell","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/Piping-Process-In-Shell/"},"url":"http://localhost:4000/posts/Piping-Process-In-Shell/"}</script>
 <!-- End Jekyll SEO tag -->
 
   
 
-  <title>CSAW'23 Quals | Sl4y3r_07
+  <title>Piping Process In Shell | Sl4y3r_07
   </title>
 
   <!--
@@ -321,7 +321,7 @@
         
           
             
-              <span>CSAW'23 Quals</span>
+              <span>Piping Process In Shell</span>
             
 
           
@@ -482,482 +482,6 @@
     
 
   
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-
-    
-
-    
-
-    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
-    
-    
-
-    <!-- add image placeholder -->
-    
-      
-    
-
-    <!-- Bypass the HTML-proofer test -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-      
-    
-
-    <!-- combine -->
-    
-
-  
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-
-    
-
-    
-
-    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
-    
-    
-
-    <!-- add image placeholder -->
-    
-      
-    
-
-    <!-- Bypass the HTML-proofer test -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-      
-    
-
-    <!-- combine -->
-    
-
-  
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-
-    
-
-    
-
-    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
-    
-    
-
-    <!-- add image placeholder -->
-    
-      
-    
-
-    <!-- Bypass the HTML-proofer test -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-      
-    
-
-    <!-- combine -->
-    
-
-  
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-
-    
-
-    
-
-    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
-    
-    
-
-    <!-- add image placeholder -->
-    
-      
-    
-
-    <!-- Bypass the HTML-proofer test -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-      
-    
-
-    <!-- combine -->
-    
-
-  
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-
-    
-
-    
-
-    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
-    
-    
-
-    <!-- add image placeholder -->
-    
-      
-    
-
-    <!-- Bypass the HTML-proofer test -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-      
-    
-
-    <!-- combine -->
-    
-
-  
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-
-    
-
-    
-
-    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
-    
-    
-
-    <!-- add image placeholder -->
-    
-      
-    
-
-    <!-- Bypass the HTML-proofer test -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-      
-    
-
-    <!-- combine -->
-    
-
-  
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-
-    
-
-    
-
-    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
-    
-    
-
-    <!-- add image placeholder -->
-    
-      
-    
-
-    <!-- Bypass the HTML-proofer test -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-      
-    
-
-    <!-- combine -->
-    
-
-  
 
   
 
@@ -977,41 +501,6 @@
   
 
   
-    
-    
-
-    
-      
-        
-        
-      
-
-      
-      
-
-      
-      
-      
-
-      
-
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-
-    
-
-    
-
-  
 
   
   
@@ -1024,18 +513,6 @@
       
         
         
-      
-
-      
-      
-
-      
-      
-      
-
-      
-
-    
       
 
       
@@ -1095,7 +572,7 @@
 
 
 
-<h1 data-toc-skip>CSAW'23 Quals</h1>
+<h1 data-toc-skip>Piping Process In Shell</h1>
 
 <div class="post-meta text-muted">
     <!-- published date -->
@@ -1112,13 +589,13 @@
 
 <em
   class=""
-  data-ts="1695010300"
+  data-ts="1717030300"
   data-df="ll"
   
     data-bs-toggle="tooltip" data-bs-placement="bottom"
   
 >
-  Sep 18, 2023
+  May 30, 2024
 </em>
 
     </span>
@@ -1164,7 +641,7 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="814 words"
+  title="806 words"
 >
   <em>4 min</em> read</span>
 
@@ -1175,94 +652,103 @@
 </div> <!-- .post-meta -->
 
 <div class="post-content">
-  <p>I had the privilege of participating in the CSAW’23 Quals CTF as a member of InfosecIITR, and it proved to be a great experience. I am delighted to share the writeups for the reversing challenges my team and I successfully solved during the competition.</p>
+  <p>Hey everyone! Welcome back to my blog series. Recently, I’ve been dedicating time to my basic <code class="language-plaintext highlighter-rouge">my-shell</code> project, where I’m working on implementing a shell in C++. While doing so, I got stuck in adding piping functionality. In this blog, I will be explaining the piping process. So, let’s start with the fundamental question, what is <code class="language-plaintext highlighter-rouge">piping</code>?</p>
 
-<h2 id="reversing"><span class="me-2">Reversing</span><a href="#reversing" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>A mechanism or a process through which the output of a command is used as an input for another command. In simpler words, it involves the chaining of the commands, creating a pipeline through which data flows. Pipe operator is denoted by <code class="language-plaintext highlighter-rouge">|</code>. Commands in the pipeline are executed <code class="language-plaintext highlighter-rouge">sequentially</code>.
+Pipe has <code class="language-plaintext highlighter-rouge">Queue</code> data structure and behaves like FIFO.</p>
 
-<h3 id="rebug1"><span class="me-2">Rebug1</span><a href="#rebug1" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<h3 id="how-piping-works"><span class="me-2">How piping works</span><a href="#how-piping-works" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<p><code class="language-plaintext highlighter-rouge">Description:-</code>
-Can’t seem to print out the flag :( Can you figure out how to get the flag with this binary?</p>
+<ul>
+  <li>A separate process is created for each command in the pipeline using <code class="language-plaintext highlighter-rouge">fork()</code> syscall.</li>
+  <li>A commiunication channel is setup through pipe (<code class="language-plaintext highlighter-rouge">|</code>) between the consecutive commands.</li>
+  <li>Pipe is unidirectional in nature. <code class="language-plaintext highlighter-rouge">pipe()</code> syscall creates a pair of file descriptors: <code class="language-plaintext highlighter-rouge">one pointing to the read end and one to the write end</code>.</li>
+  <li>Each process in the pipeline redirects its standard input (<code class="language-plaintext highlighter-rouge">stdin</code>) to read from the read end of the pipe and its standard output (<code class="language-plaintext highlighter-rouge">stdout</code>) to write to the write end of the pipe.</li>
+  <li>As the command is executed, it reads data from the previous command through pipe, processes it and writes the output to the next command in a sequential manner</li>
+</ul>
 
-<p><code class="language-plaintext highlighter-rouge">Challenge File:</code> <a href="/assests/CSAW/test.out">file</a></p>
+<p><a href="../../assets/piping/pipe.png" class="popup img-link "><img data-src="../../assets/piping/pipe.png" alt="img" class="lazyload" data-proofer-ignore></a></p>
 
-<p>This challenge was beginner level reversing challenge. To see the decompiled code, open the provided binary in IDA and press F5.</p>
+<h3 id="implementation"><span class="me-2">Implementation</span><a href="#implementation" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<p><a href="/assets/CSAW/source-code.png" class="popup img-link "><img data-src="/assets/CSAW/source-code.png" alt="source-code" class="lazyload" data-proofer-ignore></a></p>
+<p>Let’s understand how we can implement this mechanism in our shell. First of all, let’s see how shell works in a simple way. It first take input as a string, then it parses the input into arguments and thus executes the command with help of <code class="language-plaintext highlighter-rouge">fork-exec</code> model.</p>
 
-<p>According to the code, the user is expected to input a 12-character string, and if the string length matches, they will receive a flag in response to the input.
-Now run the binary and give any 12-character input and you’ll get the flag.</p>
+<p>What if when pipe is used, for e.g. <code class="language-plaintext highlighter-rouge">command1 | command2 | command3</code>. There are multiple commands now, so each command is now need to be parsed and count the number of pipes used.</p>
 
-<p><a href="/assets/CSAW/rev1flag.png" class="popup img-link "><img data-src="/assets/CSAW/rev1flag.png" alt="rev1flag" class="lazyload" data-proofer-ignore></a></p>
+<p>A <code class="language-plaintext highlighter-rouge">pipe()</code> syscall gives two file descriptors: <code class="language-plaintext highlighter-rouge">pfd[0] for read, and pfd[1] for write</code></p>
 
-<p>Flag:- <code class="language-plaintext highlighter-rouge">csawctf{c20ad4d76fe97759aa27a0c99bff6710}</code></p>
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp">  <span class="kt">int</span> <span class="n">pipes_count</span> <span class="o">=</span> <span class="n">commands</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">pipefds</span><span class="p">[</span><span class="n">pipes_count</span> <span class="o">*</span> <span class="mi">2</span><span class="p">];</span>       <span class="c1">// array to hold file descriptors for pipes</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">pipes_count</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">pipe</span><span class="p">(</span><span class="n">pipefds</span> <span class="o">+</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>   <span class="c1">// initialize pipe</span>
+        <span class="n">perror</span><span class="p">(</span><span class="s">"pipe"</span><span class="p">);</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span></code></pre></figure>
 
-<h3 id="rebug2"><span class="me-2">Rebug2</span><a href="#rebug2" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<p><code class="language-plaintext highlighter-rouge">pipe(pipefds + i * 2)</code>: this intialises the two consecutive file descriptors. When i is 0, it initializes <code class="language-plaintext highlighter-rouge">pipefds[0]</code> and <code class="language-plaintext highlighter-rouge">pipefds[1]</code>. Hence, we have created all the required pipes before forking the processes. Now, fork the processes. Each command will run in its own child process.</p>
 
-<p><code class="language-plaintext highlighter-rouge">Description:-</code> 
-No input this time ;) Try to get the flag from the binary. When you find the answer of the program, please submit the flag in the following format: csawctf{output}</p>
+<p>So, we have input: <code class="language-plaintext highlighter-rouge">command1 | command2 | command3</code>. There are two pipes and three commands. There will be four file descriptors, two for each (one for read end and one for write end).</p>
 
-<p><code class="language-plaintext highlighter-rouge">Challenge File:</code> <a href="/assets/CSAW/bin.out">file</a></p>
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp">  <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span> <span class="n">commands</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">pid_t</span> <span class="n">pid</span><span class="o">=</span> <span class="n">fork</span><span class="p">();</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">pid</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>  <span class="c1">// child process</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// redirect input from the previous pipe</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">dup2</span><span class="p">(</span><span class="n">pipefds</span><span class="p">[(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">perror</span><span class="p">(</span><span class="s">"dup2"</span><span class="p">);</span>
+                <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>        
+        <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">commands</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// redirect output to next pipe</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">dup2</span><span class="p">(</span><span class="n">pipefds</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">perror</span><span class="p">(</span><span class="s">"dup2"</span><span class="p">);</span>
+                <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pipes_count</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// Close all pipe file descriptors</span>
+            <span class="n">close</span><span class="p">(</span><span class="n">pipefds</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span>
+        <span class="p">}</span>
+        <span class="n">vector</span><span class="o">&lt;</span> <span class="n">string</span><span class="o">&gt;</span> <span class="n">args</span> <span class="o">=</span> <span class="n">parsing_string</span><span class="p">(</span><span class="n">commands</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>  
+        <span class="n">vector</span><span class="o">&lt;</span> <span class="kt">char</span> <span class="o">*&gt;</span> <span class="n">cargs</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="k">auto</span> <span class="o">&amp;</span><span class="n">arg</span> <span class="o">:</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">cargs</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="k">const_cast</span><span class="o">&lt;</span>  <span class="kt">char</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">arg</span><span class="p">.</span><span class="n">c_str</span><span class="p">()));</span>
+        <span class="p">}</span>
+        <span class="n">cargs</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="nb">nullptr</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">execvp</span><span class="p">(</span><span class="n">cargs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">cargs</span><span class="p">.</span><span class="n">data</span><span class="p">())</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">perror</span><span class="p">(</span><span class="s">"exec"</span><span class="p">);</span>
+            <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+        <span class="p">}</span>
+     <span class="p">}</span> <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">pid</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">perror</span><span class="p">(</span><span class="s">"fork"</span><span class="p">);</span>   <span class="c1">// Error in forking</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="p">}</span>    
+  <span class="p">}</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pipes_count</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">close</span><span class="p">(</span><span class="n">pipefds</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+  <span class="p">}</span></code></pre></figure>
 
-<p>This time, there is no need of input as it was in Rebug1. So let’s have a look at the source code first. Open the binary in IDA and decompile it (pressing F5).</p>
+<p>Wehn i==0, child process for command1 will be forked. It will write to Pipe1. stdout of command1 will be redirected to Pipe1 write end, <code class="language-plaintext highlighter-rouge">dup2(pipefds[1], 1);</code></p>
 
-<p><a href="/assets/CSAW/main.png" class="popup img-link "><img data-src="/assets/CSAW/main.png" alt="source-code" class="lazyload" data-proofer-ignore></a></p>
+<p>When i==1, child process for command2 will be forked. It reads from pipe1 and writes to pipe2. <code class="language-plaintext highlighter-rouge">dup2(pipefds[0], 0);</code> : redirects stdin of command2 to Pipe 1’s read end and <code class="language-plaintext highlighter-rouge">dup2(pipefds[3], 1);</code>: redirects stdout of command2 to Pipe 2’s write end.</p>
 
-<p>Initially, a string is provided to us which undergoes certain operations and then another function <code class="language-plaintext highlighter-rouge">printbinchar</code>is called only when <code class="language-plaintext highlighter-rouge">(i &amp; 1) == 0 &amp;&amp; i</code> -this condition is satisfied (i should be even and non-zero). Now look at <code class="language-plaintext highlighter-rouge">printbinchar</code> function.</p>
+<p>When i==2, child process for command3 will be forked. It reads from Pipe 2. <code class="language-plaintext highlighter-rouge">dup2(pipefds[2], 0)</code> redirects the standard input of command3 to the read end of Pipe 2.</p>
 
-<p><a href="/assets/CSAW/printbinchar.png" class="popup img-link "><img data-src="/assets/CSAW/printbinchar.png" alt="source-code" class="lazyload" data-proofer-ignore></a></p>
+<p>After setting up the necessary redirections using dup2, the child process closes all pipe file descriptors. This is because once dup2 has duplicated the file descriptors to stdin (0) and stdout (1), the original pipe file descriptors are no longer needed by this process.</p>
 
-<p>In this function, <code class="language-plaintext highlighter-rouge">v4&lt;&lt;i&gt;&gt;7</code> a left shift operation is done which shifts its bits left by i positions and then right shift operation which shift its bits right by 7. The purpose of this function is to represent a char in in its binary form. But here again another function <code class="language-plaintext highlighter-rouge">xoring</code> is being called. Here, its pseudo-code :-</p>
+<p>After forking all child processes, the parent process closes all pipe file descriptors. This is important because the parent process does not need to use these pipes itself.</p>
 
-<p><a href="/assets/CSAW/xoring.png" class="popup img-link "><img data-src="/assets/CSAW/xoring.png" alt="source-code" class="lazyload" data-proofer-ignore></a></p>
+<p>Closing the file descriptors prevents the resource leakage and ensures the proper functioning of the pipeline.</p>
 
-<p>Now, we have almost reached to our final destination. If above conditions are met, then ‘0’ will be added to our flag and if not, then ‘1’. So, to get flag, I just copied the above pseudo-code and modified it. I added <code class="language-plaintext highlighter-rouge">print(flag)</code> and ran it. Here it is- <a href="/assets/CSAW/rev.c">file</a></p>
+<p>Thus, we have reached at the end of this blog. Thank you for your attention, hope you like it.</p>
 
-<p>Flag:- <code class="language-plaintext highlighter-rouge">csawctf{01011100010001110000}</code></p>
-
-<h3 id="impossibrawler"><span class="me-2">Impossibrawler</span><a href="#impossibrawler" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
-
-<p><code class="language-plaintext highlighter-rouge">Description:-</code> How do I beat these guys ?</p>
-
-<p><code class="language-plaintext highlighter-rouge">Challenge File:</code> <a href="/assests/CSAW/Impossibrawler.pck">file1</a> <a href="/assests/CSAW/Impossibrawler.exe">file2</a></p>
-
-<p>This game was based on game-reversing. It was a nice challenge as it made me to spend a lot of time as I overlooked something very basic. So let’s discuss:-</p>
-
-<p>First, I ran the .exe file and found the flag was only accessible after completing two levels, but main catch here was, the bullets which player was firing were not causing the damage to enemies and thus their health remained constant. So in short, game was unbeatable by human(atleast for me as I’m very bad at gaming) to get flag.</p>
-
-<p>I first approached it by Cheat Engine to get control over required variables and I tried searching for strings too.. but it was not of any help. Then I tried to extract files from exe itself but it was also a futile effort. Then I thought about the game-engine used:- Godot Engine. I googled about godot engine game reversing and got this helpful tool- <a href="https://github.com/bruvzg/gdsdecomp">link</a>. I used .pck file for unpacking my game and successfully recovered the project files.</p>
-
-<p><a href="/assets/CSAW/level2.png" class="popup img-link "><img data-src="/assets/CSAW/level2.png" alt="level2.png" class="lazyload" data-proofer-ignore></a></p>
-
-<p>In level_2 script, when <code class="language-plaintext highlighter-rouge">enemies_left == 0</code> range of a random number generator is seeded with the value obtained from <code class="language-plaintext highlighter-rouge">int(Vals.sd)</code> after which random floating number is generated, <code class="language-plaintext highlighter-rouge">fbytes</code> is converted to string. Flag is obtained by converting <code class="language-plaintext highlighter-rouge">fbytes</code> to ascii followed by hex encoding. Since <code class="language-plaintext highlighter-rouge">Vals.sd</code> is required, so I looked in level_1 script to check whether it was being updated. Yes, in level_1, <code class="language-plaintext highlighter-rouge">Vals.sd</code> was storing fbytes when <code class="language-plaintext highlighter-rouge">enemies_left == 0</code>. Initially vals.sd was set 0. The basic thing I overlooked the functionality of <code class="language-plaintext highlighter-rouge">randf()</code> which returns values between 0 and 1, so it does not matter whether vals.sd is updated or not because in level_2 it is casted into <code class="language-plaintext highlighter-rouge">int</code> type which makes it 0.</p>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"> <span class="n">var</span> <span class="n">rng</span> <span class="o">=</span> <span class="n">RandomNumberGenerator</span><span class="p">.</span><span class="nf">new</span><span class="p">()</span>
- <span class="n">rng</span><span class="p">.</span><span class="n">seed</span> <span class="o">=</span> <span class="mi">0</span>
- <span class="n">var</span> <span class="n">fbytes</span> <span class="o">=</span> <span class="n">rng</span><span class="p">.</span><span class="nf">randf</span><span class="p">()</span>
- <span class="n">fbytes</span> <span class="o">=</span> <span class="nf">str</span><span class="p">(</span><span class="n">fbytes</span><span class="p">)</span>  
- <span class="nf">print</span><span class="p">(</span><span class="n">fbytes</span><span class="p">)</span></code></pre></figure>
-
-<p>Output is <code class="language-plaintext highlighter-rouge">0.202272</code>. For flag, convert this to ascii and then in hex, i.e., <code class="language-plaintext highlighter-rouge">302e323032323732</code>. This is our flag.
-Flag:- <code class="language-plaintext highlighter-rouge">csawctf{302e323032323732}</code></p>
-
-<h2 id="misc"><span class="me-2">Misc</span><a href="#misc" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<h3 id="androiddropper"><span class="me-2">AndroidDropper</span><a href="#androiddropper" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
-
-<p><code class="language-plaintext highlighter-rouge">Description:-</code> The app does nothing!</p>
-
-<p><code class="language-plaintext highlighter-rouge">Challenge File:</code> <a href="/assests/CSAW/dropper.apk">file</a></p>
-
-<p>This was an easy android reversing based challenge. For android reversing, I use <code class="language-plaintext highlighter-rouge">jadx</code> tool to view the source code. In jadx, navigate to <code class="language-plaintext highlighter-rouge">com.example.dropper</code> and here the code is :-</p>
-
-<p><a href="/assets/CSAW/dropper1.png" class="popup img-link "><img data-src="/assets/CSAW/dropper1.png" alt="source-code" class="lazyload" data-proofer-ignore></a></p>
-
-<p>Some base64 encoded data is given which is written to <code class="language-plaintext highlighter-rouge">dropper.dex</code> after being decoded. I did the same, decoded the data, got the .dex file content. Then to analyze the dex file, I ran <code class="language-plaintext highlighter-rouge">jadx -d d_jadx dropper.dex</code> command.</p>
-
-<p><a href="/assets/CSAW/dropper2.png" class="popup img-link "><img data-src="/assets/CSAW/dropper2.png" alt="source-code" class="lazyload" data-proofer-ignore></a></p>
-
-<p>Now, there is a link given in code, clicking on it, gave base64 data. Decoding base64 data is stored in <code class="language-plaintext highlighter-rouge">notTheFlag</code> variable and <code class="language-plaintext highlighter-rouge">obf</code> function is now called. So, we got the flag, using decoded data, which is passed in <code class="language-plaintext highlighter-rouge">obf</code>.</p>
-
-<p>Flag:- <code class="language-plaintext highlighter-rouge">csawctf{dyn4m1c_lo4deRs_r_fuN!}</code></p>
+<h3 id="references"><span class="me-2">References</span><a href="#references" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<ul>
+  <li>https://www.scaler.com/topics/pipes-in-os/</li>
+  <li>https://github.com/Sl4y3r-07/my-shell</li>
+  <li>https://stackoverflow.com/questions/63544779/how-is-pipe-uni-directional-when-we-get-two-file-descriptors-by-calling-pipe-f</li>
+</ul>
 
 
 </div>
@@ -1274,8 +760,7 @@ Flag:- <code class="language-plaintext highlighter-rouge">csawctf{302e3230323237
   <div class="post-meta mb-3">
     <i class="far fa-folder-open fa-fw me-1"></i>
     
-      <a href='/categories/writeups/'>Writeups</a>,
-      <a href='/categories/reversing/'>Reversing</a>
+      <a href='/categories/blogs/'>Blogs</a>
   </div>
   
 
@@ -1284,8 +769,14 @@ Flag:- <code class="language-plaintext highlighter-rouge">csawctf{302e3230323237
   <div class="post-tags">
     <i class="fa fa-tags fa-fw me-1"></i>
       
-      <a href="/tags/reversing/"
-          class="post-tag no-text-decoration" >reversing</a>
+      <a href="/tags/linux/"
+          class="post-tag no-text-decoration" >Linux</a>
+      
+      <a href="/tags/shell/"
+          class="post-tag no-text-decoration" >Shell</a>
+      
+      <a href="/tags/computer-systems/"
+          class="post-tag no-text-decoration" >Computer Systems</a>
       
   </div>
   
@@ -1319,7 +810,7 @@ Flag:- <code class="language-plaintext highlighter-rouge">csawctf{302e3230323237
     
       
       <a
-        href="https://twitter.com/intent/tweet?text=CSAW'23%20Quals%20-%20Sl4y3r_07&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2FCSAW%2723-Quals%2F"
+        href="https://twitter.com/intent/tweet?text=Piping%20Process%20In%20Shell%20-%20Sl4y3r_07&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2FPiping-Process-In-Shell%2F"
         data-bs-toggle="tooltip"
         data-bs-placement="top"
         title="Twitter"
@@ -1332,7 +823,7 @@ Flag:- <code class="language-plaintext highlighter-rouge">csawctf{302e3230323237
     
       
       <a
-        href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2FCSAW%2723-Quals%2F&text=CSAW'23%20Quals%20-%20Sl4y3r_07"
+        href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2FPiping-Process-In-Shell%2F&text=Piping%20Process%20In%20Shell%20-%20Sl4y3r_07"
         data-bs-toggle="tooltip"
         data-bs-placement="top"
         title="Telegram"
@@ -1345,7 +836,7 @@ Flag:- <code class="language-plaintext highlighter-rouge">csawctf{302e3230323237
     
       
       <a
-        href="https://www.linkedin.com/sharing/share-offsite/?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2FCSAW%2723-Quals%2F"
+        href="https://www.linkedin.com/sharing/share-offsite/?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2FPiping-Process-In-Shell%2F"
         data-bs-toggle="tooltip"
         data-bs-placement="top"
         title="Linkedin"
@@ -1827,67 +1318,67 @@ Flag:- <code class="language-plaintext highlighter-rouge">csawctf{302e3230323237
   
 
   
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
     
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
   
 
   
@@ -1909,16 +1400,6 @@ Flag:- <code class="language-plaintext highlighter-rouge">csawctf{302e3230323237
 
 
 
-  
-    
-    
-      
-      
-        
-        
-        
-          
-
 
 
   <div id="related-posts" class="mb-2 mb-sm-4">
@@ -1930,7 +1411,7 @@ Flag:- <code class="language-plaintext highlighter-rouge">csawctf{302e3230323237
         
         
         <div class="col">
-          <a href="/posts/BackdoorCTF'23-Writeups/" class="card post-preview h-100">
+          <a href="/posts/Networking-Part-1/" class="card post-preview h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -1943,14 +1424,14 @@ Flag:- <code class="language-plaintext highlighter-rouge">csawctf{302e3230323237
 
 <em
   class="small"
-  data-ts="1703304700"
+  data-ts="1702428700"
   data-df="ll"
   
 >
-  Dec 23, 2023
+  Dec 13, 2023
 </em>
 
-              <h4 class="pt-0 my-2" data-toc-skip>BackdoorCTF'23 Writeups</h4>
+              <h4 class="pt-0 my-2" data-toc-skip>Networking - Part 1</h4>
               <div class="text-muted small">
                 <p>
                   
@@ -1959,12 +1440,7 @@ Flag:- <code class="language-plaintext highlighter-rouge">csawctf{302e3230323237
 
 
 
-                  I’m sharing writeups for the challenges I  created for Backdoor CTF’23, hosted by InfoSecIITR. Here they are :-
-
-Forensics/Headache
-
-Description:-
-I’ve had a headache since last evening. Is there a...
+                  Hey everyone! This blog covers the basics of computer networking. So let’s start with the fundamental question… Exactly what is a computer network? It’s a network of two or more two devices exchang...
                 </p>
               </div>
             </div>
@@ -1974,7 +1450,7 @@ I’ve had a headache since last evening. Is there a...
         
         
         <div class="col">
-          <a href="/posts/SekaiCTF-2023-DEFCON-Invitation/" class="card post-preview h-100">
+          <a href="/posts/Networking-Part-2/" class="card post-preview h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -1987,14 +1463,14 @@ I’ve had a headache since last evening. Is there a...
 
 <em
   class="small"
-  data-ts="1693183900"
+  data-ts="1702601500"
   data-df="ll"
   
 >
-  Aug 28, 2023
+  Dec 15, 2023
 </em>
 
-              <h4 class="pt-0 my-2" data-toc-skip>SekaiCTF 2023 - DEFCON Invitation</h4>
+              <h4 class="pt-0 my-2" data-toc-skip>Networking - Part 2</h4>
               <div class="text-muted small">
                 <p>
                   
@@ -2003,8 +1479,11 @@ I’ve had a headache since last evening. Is there a...
 
 
 
-                  Description:-
-As you all know, DEF CON CTF Qualifier 2023 was really competitive and we didn’t make it. Surprisingly, 2 months before the finals in Las Vegas, we received an official invitation fro...
+                  Welcome to the other part of Computer Networking. In this part, we’ll be exploring the protocols involved in networking.
+
+HTTP
+
+HTTP stands for Hypertext Tranfer Protocol. It can be defined as the ...
                 </p>
               </div>
             </div>
@@ -2014,7 +1493,7 @@ As you all know, DEF CON CTF Qualifier 2023 was really competitive and we didn�
         
         
         <div class="col">
-          <a href="/posts/Piping-Process-In-Shell/" class="card post-preview h-100">
+          <a href="/posts/CPU-Scheduling/" class="card post-preview h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -2027,14 +1506,14 @@ As you all know, DEF CON CTF Qualifier 2023 was really competitive and we didn�
 
 <em
   class="small"
-  data-ts="1717030300"
+  data-ts="1712278300"
   data-df="ll"
   
 >
-  May 30, 2024
+  Apr  5, 2024
 </em>
 
-              <h4 class="pt-0 my-2" data-toc-skip>Piping Process In Shell</h4>
+              <h4 class="pt-0 my-2" data-toc-skip>CPU Scheduling</h4>
               <div class="text-muted small">
                 <p>
                   
@@ -2043,7 +1522,7 @@ As you all know, DEF CON CTF Qualifier 2023 was really competitive and we didn�
 
 
 
-                  Hey everyone! Welcome back to my blog series. Recently, I’ve been dedicating time to my basic my-shell project, where I’m working on implementing a shell in C++. While doing so, I got stuck in addi...
+                  Hey everyone! This article is about how CPU schedules the processes and executes them, covering various scheduling algorithms. It consists of my notes which I prepared while studying this topic fro...
                 </p>
               </div>
             </div>
@@ -2063,22 +1542,21 @@ As you all know, DEF CON CTF Qualifier 2023 was really competitive and we didn�
 <div class="post-navigation d-flex justify-content-between">
   
     <a
-      href="/posts/SekaiCTF-2023-DEFCON-Invitation/"
+      href="/posts/CPU-Scheduling/"
       class="btn btn-outline-primary"
       prompt="Older"
     >
-      <p>SekaiCTF 2023 - DEFCON Invitation</p>
+      <p>CPU Scheduling</p>
     </a>
   
 
   
-    <a
-      href="/posts/Networking-Part-1/"
-      class="btn btn-outline-primary"
+    <div
+      class="btn btn-outline-primary disabled"
       prompt="Newer"
     >
-      <p>Networking - Part 1</p>
-    </a>
+      <p>-</p>
+    </div>
   
 </div>
 

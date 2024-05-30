@@ -1,0 +1,136 @@
+<p>Welcome to the other part of Computer Networking. In this part, we’ll be exploring the protocols involved in networking.</p>
+
+<h3 id="http">HTTP</h3>
+
+<p>HTTP stands for <code class="language-plaintext highlighter-rouge">Hypertext Tranfer Protocol</code>. It can be defined as the foundation of communication on the web. It is an application layer protocol, used to transfer information between devices. This protocol involves various request methods and corresponding responses to communicate between clients and servers.</p>
+
+<p><strong>Request Methods</strong></p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">GET</code>: Requests data from a specified resource.</li>
+  <li><code class="language-plaintext highlighter-rouge">POST</code>: Submits data to be processed to a specified resource.</li>
+  <li><code class="language-plaintext highlighter-rouge">PUT</code>: Updates a resource or creates a new one if it doesn’t exist.</li>
+  <li><code class="language-plaintext highlighter-rouge">DELETE</code>: Deletes the specified resource.</li>
+  <li><code class="language-plaintext highlighter-rouge">PATCH</code>: Partially updates a resource.</li>
+  <li><code class="language-plaintext highlighter-rouge">HEAD</code>: Requests the headers of a resource, similar to GET but without the body.</li>
+  <li><code class="language-plaintext highlighter-rouge">OPTIONS</code>: Queries the server for available methods on a resource.</li>
+</ul>
+
+<p><strong>Responses</strong></p>
+
+<p>The server responds to these request methods with status codes, indicating the success or failure of the request.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">1xx</code>: Informational - Request received, continuing process.</li>
+  <li><code class="language-plaintext highlighter-rouge">2xx</code>: Success - Request successfully received, understood, and accepted.</li>
+  <li><code class="language-plaintext highlighter-rouge">3xx</code>: Redirection - Further action needed to complete the request.</li>
+  <li><code class="language-plaintext highlighter-rouge">4xx</code>: Client Error - Request contains bad syntax or cannot be fulfilled.</li>
+  <li><code class="language-plaintext highlighter-rouge">5xx</code>: Server Error - Server failed to fulfill a valid request.</li>
+</ul>
+
+<p>Example: <code class="language-plaintext highlighter-rouge">502</code>: Bad Gateway, <code class="language-plaintext highlighter-rouge">500</code>: Internal Server Error, <code class="language-plaintext highlighter-rouge">200</code>: Successful GET request, <code class="language-plaintext highlighter-rouge">201</code>: Successful POST request, <code class="language-plaintext highlighter-rouge">404</code>:URL can’t be found, <code class="language-plaintext highlighter-rouge">102</code>:Processing, <code class="language-plaintext highlighter-rouge">301</code>:Moved Permanently, <code class="language-plaintext highlighter-rouge">305</code>:Use Proxy</p>
+
+<h3 id="smtp">SMTP</h3>
+
+<p>SMTP stands for <code class="language-plaintext highlighter-rouge">Simple Mail Transport Protocol</code>. It is a standard protocol used for sending and receiving emails over the internet. SMTP works between mail servers to handle the sending of emails from the sender’s email client to the recipient’s email server. It operates on TCP <code class="language-plaintext highlighter-rouge">port 25</code> by default. To add more security, modern SMTP servers use <code class="language-plaintext highlighter-rouge">SSL</code> (Secure Shell) or <code class="language-plaintext highlighter-rouge">TLS</code> (Transport Layer Security) to encrypt the communication and to prevent unauthorized access or interception of emails..</p>
+
+<p><strong>How does an SMTP server work?</strong></p>
+<ul>
+  <li>
+    <p>When we send an email from our email client (like Gmail, Outlook, Yahoo etc.), our email client communicates with our email provider’s SMTP server.</p>
+  </li>
+  <li>
+    <p>Our email client formats the email according to SMTP standards (including the sender’s address, recipient’s address, subject, message body, and attachments).</p>
+  </li>
+  <li>
+    <p>The email client establishes a connection to the SMTP server using the SMTP protocol on port 25. It sends the formatted email to the SMTP server.</p>
+  </li>
+  <li>
+    <p>The SMTP server processes the email, performs checks (such as domain validation), and decides whether to relay the message to another server or deliver it locally (if the recipient is on the same server).</p>
+  </li>
+  <li>
+    <p>If the recipient is on a different domain, the SMTP server might forward the email to another SMTP server responsible for handling emails for that domain. This process continues until the email reaches the recipient’s SMTP server.</p>
+  </li>
+  <li>
+    <p>The recipient’s SMTP server receives the email, performs further checks, and places it in the recipient’s mailbox or forwards it to the recipient’s email client for retrieval.</p>
+  </li>
+</ul>
+
+<h3 id="popimap">POP/IMAP</h3>
+
+<p>These are two standard protocols used by email clients to retrieve emails from a mail server. <code class="language-plaintext highlighter-rouge">POP</code> stands for <code class="language-plaintext highlighter-rouge">Post Office Protocol</code>. It is an older protocol that downloads the emails from the server and stores them locally on the device. <code class="language-plaintext highlighter-rouge">IMAP</code> stands for <code class="language-plaintext highlighter-rouge">Internet Message Access Protocol</code> that works in contrast to POP. It keeps emails stored on the server. IMAP is ideal for users who access their emails from multiple devices (such as phones, tablets, and computers) and want their emails to be synchronized across all devices.</p>
+
+<p><img src="/assets/Networking/smtp.jpg" alt="smtp" /></p>
+
+<h3 id="dhcp">DHCP</h3>
+
+<p>DHCP stands for <code class="language-plaintext highlighter-rouge">Dynamic Host Configiration Protocol</code>. This protocol automates the assignment of IP addresses and other network configuration to devices in the network especially in the larger network where manually assigning addresses to each device would be impractical. Let’s understand the how it works :-</p>
+
+<p>When a device connects to a network, it sends out a broadcast message to a DHCP server on the network <code class="language-plaintext highlighter-rouge">requesting an IP address</code>. It manages a pool of available IP addresses and configuration settings. The DHCP server selects an available IP address from its pool and assigns it to the requesting device. This assignment is temporary and is known as a lease. The lease includes a <code class="language-plaintext highlighter-rouge">lease duration</code>, specifying how long the IP address is valid for that device. It may also provide additional network configuration information, such as the subnet mask, default gateway, DNS servers, and more. Once the IP address and configuration settings are assigned, DHCP server sends an acknowledgment to the requesting device, confirming the lease.</p>
+
+<p>The device can also request a <code class="language-plaintext highlighter-rouge">lease renewal</code> from the DHCP server to continue using the same IP address. If the DHCP server approves the renewal, the lease duration is extended.</p>
+
+<p><img src="/assets/Networking/dhcp.jpg" alt="dhcp" /></p>
+
+<h3 id="ftp">FTP</h3>
+
+<p>FTP stands for <code class="language-plaintext highlighter-rouge">File Transfer Protocol</code>, a standard network protocol for transferring files between server and client on a computer network. It works on a client-server model where client conencts to server to perform file transfers.</p>
+
+<p><img src="/assets/Networking/ftp.png" alt="ftp" /></p>
+
+<p>In the above image, I connected to a <code class="language-plaintext highlighter-rouge">FTP server</code> by username and password. By <code class="language-plaintext highlighter-rouge">ls</code> command, I listed all the files present on the server (There are some Organic Reactions files of my JEE time :p). Similarly, with <code class="language-plaintext highlighter-rouge">send</code> I can send files and with <code class="language-plaintext highlighter-rouge">get</code>, I can download the files from the server. There are other commands also related to FTP server.</p>
+
+<p>Traditional FTP doesn’t encrypt data during transmission, which may cause security risks. Secure versions like FTPS (FTP Secure) and SFTP (SSH File Transfer Protocol) add encryption for secure data transfer.</p>
+
+<h3 id="arp">ARP</h3>
+
+<p>ARP stands for <code class="language-plaintext highlighter-rouge">Address Resolution Protocol</code>, that operates at 2nd layer (Data Link Layer). It is used for mapping an IP address to a physical machine address, such as a MAC address in a local network. Let’s understand how ARP works :-</p>
+
+<p>When a device wants to communicate with another device on the same local network and knows the IP address but not the MAC address of the destination, it uses ARP to find the MAC address associated with the IP address. The requesting device sends an <code class="language-plaintext highlighter-rouge">ARP request</code> packet containing the target IP address across the network. The device that has the corresponding IP address in its ARP cache responds with an <code class="language-plaintext highlighter-rouge">ARP reply</code> packet, providing its MAC address and after receiving the reply, the requesting device stores this mapping in its <code class="language-plaintext highlighter-rouge">ARP cache</code> or table. This cache helps speed up future communications by avoiding the need for ARP requests for frequently accessed IP addresses.However, ARP cache size is limited by design, so it is purged regularly to free up space.</p>
+
+<p><img src="/assets/Networking/arp.jpg" alt="arp" /></p>
+
+<h3 id="bgpospf">BGP/OSPF</h3>
+
+<p>BGP stands for <code class="language-plaintext highlighter-rouge">Border Gateway Protocol</code>  and OSPF stands for <code class="language-plaintext highlighter-rouge">Open Shortest Path First</code>. Both are routing protocols but they operate in different ways.
+BGP is an <code class="language-plaintext highlighter-rouge">exterior gateway protocol</code> (EGP) primarily used to exchange routing information between different autonomous systems (AS) on the internet.</p>
+
+<p>What is <strong>autonomous system</strong>? It is a collection of IP networks and routers under a common administration sharing a single routing policy.</p>
+
+<p>The purpose of BGP is to enable routers within different autonomous systems to share information about the best available paths for reaching specific destinations across the internet. It depends on mutliple factors such as network policies, path attributes, and the number of autonomous systems a route passes through.</p>
+
+<p>OSPF is an <code class="language-plaintext highlighter-rouge">interior gateway protocol</code> (IGP) designed for use within an autonomous system. Its purpose is to determine the best route path within an autonomous system. It is easily configured than BGP which is lot more complex. It also supports faster convergence which helps in effiient routing.</p>
+
+<p><img src="/assets/Networking/bgp.png" alt="bgp" /></p>
+
+<h3 id="tcp">TCP</h3>
+
+<p>TCP stands for <code class="language-plaintext highlighter-rouge">Transmission Control Protocol</code>, a connection oriented protocol i.e it establishes a connection between sender and reciever before exchanging data. It ensures reliable, ordered, and error-checked delivery of data packets. TCP guarantees the delivery of data by using <code class="language-plaintext highlighter-rouge">acknowledgments and retransmissions</code>. It also include flow control mechanisms to manage the rate of data transmission between devices.</p>
+
+<p><code class="language-plaintext highlighter-rouge">Transmission</code>: It refers to the process of sending data from one device to another across a network. Data is broken down into smaller units called packets or frames</p>
+
+<p><code class="language-plaintext highlighter-rouge">Acknowledgments (ACK)</code>: After sending data, the sender expects confirmation from the receiver that the data arrived intact. This acknowledgment serves as confirmation that the data was successfully received. If the sender does not receive an acknowledgment within a specified time frame or detects packet loss, it retransmits the data to ensure reliable delivery.</p>
+
+<p>There is also another flag called <code class="language-plaintext highlighter-rouge">SYN</code> which stands for <code class="language-plaintext highlighter-rouge">Synchronize</code>. When a device wants to establish a TCP connection with another device, it sends a TCP packet with the SYN flag set in the header. This packet contains an initial sequence number, which is used to start the conversation and synchronize sequence numbers between the sender and receiver.</p>
+
+<p><code class="language-plaintext highlighter-rouge">Sequence numbers</code> are unique identifiers assigned to TCP segments to maintain the order and integrity of data transmitted over a connection. They help in reassembling packets in the correct order at the receiver’s end. Each segment of data sent via TCP contains a sequence number, allowing the receiver to arrange and reconstruct the data in the correct order.</p>
+
+<p>When a TCP connection is initiated, the SYN flag is set in the first packet sent by the initiating device. This packet includes an initial sequence number. The receiving device responds with its own SYN packet, acknowledging the connection request and also including its own initial sequence number. So the SYN flag is used to synchronize sequence numbers between devices initiating a TCP connection. It marks the beginning of a <code class="language-plaintext highlighter-rouge">three-way handshake</code> in TCP, allowing devices to exchange sequence numbers and establish a reliable connection before data transmission begins.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">three-way handshake</code> is a fundamental process in the TCP for establishing a reliable connection between two devices over a network. Data transmission can begin after the completion of the three-way handshake.</p>
+
+<p>The three steps involved in the TCP three-way handshake are:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SYN:
+    The initiating device sends a TCP segment with the SYN flag set to the receiving device to initiate a connection request. This packet includes an initial sequence number chosen by the client to start the conversation.
+
+SYN-ACK:
+    Upon receiving the SYN segment, if the server is available and willing to establish a connection, it responds with a TCP segment. This segment has both the SYN and ACK flags set, acknowledging the receipt of the client's SYN packet and also indicating its own readiness to establish the connection.
+    The server also chooses its own initial sequence number for the conversation.
+
+ACK:
+    Finally, the client responds to the server's SYN-ACK packet with an ACK packet. This packet acknowledges the receipt of the server's SYN-ACK segment. At this point, the connection is established and both devices have synchronized sequence numbers.
+</code></pre></div></div>
+
+<h3 id="udp">UDP</h3>
+<p>It stands for <code class="language-plaintext highlighter-rouge">User Datagram Protocol</code>, a connection-less protocol i.e. it does not establish a direct connection for data exchange. It sends data packets, called <code class="language-plaintext highlighter-rouge">datagrams</code>, without establishing a connection or checking whether the receiver is ready or exists. Unlike TCP, it does not have an error checking mechanism which may result in corruption and loss of data packets. UDP has <code class="language-plaintext highlighter-rouge">lower overhead</code> compared to TCP because it lacks the extensive error-checking and flow control mechanisms. This makes it faster and more efficient for real-time applications. It is used where speed and efficiency is prioritized over reliability like video streaming, gaming, DNS lookups and cases where small amount of loss of data is acceptable.</p>
+
