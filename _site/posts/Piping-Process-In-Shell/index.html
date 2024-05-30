@@ -641,7 +641,7 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="806 words"
+  title="807 words"
 >
   <em>4 min</em> read</span>
 
@@ -671,7 +671,7 @@ Pipe has <code class="language-plaintext highlighter-rouge">Queue</code> data st
 
 <h3 id="implementation"><span class="me-2">Implementation</span><a href="#implementation" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<p>Let’s understand how we can implement this mechanism in our shell. First of all, let’s see how shell works in a simple way. It first take input as a string, then it parses the input into arguments and thus executes the command with help of <code class="language-plaintext highlighter-rouge">fork-exec</code> model.</p>
+<p>Let’s understand how we can implement this mechanism in our shell. First of all, let’s see how shell works in a simple way. It first takes input as a string, then it parses the input into arguments and thus executes the command with help of <code class="language-plaintext highlighter-rouge">fork-exec</code> model.</p>
 
 <p>What if when pipe is used, for e.g. <code class="language-plaintext highlighter-rouge">command1 | command2 | command3</code>. There are multiple commands now, so each command is now need to be parsed and count the number of pipes used.</p>
 
@@ -748,6 +748,7 @@ Pipe has <code class="language-plaintext highlighter-rouge">Queue</code> data st
   <li>https://www.scaler.com/topics/pipes-in-os/</li>
   <li>https://github.com/Sl4y3r-07/my-shell</li>
   <li>https://stackoverflow.com/questions/63544779/how-is-pipe-uni-directional-when-we-get-two-file-descriptors-by-calling-pipe-f</li>
+  <li>https://inst.eecs.berkeley.edu/~cs162/fa21/static/dis/dis2.pdf</li>
 </ul>
 
 

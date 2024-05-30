@@ -23,7 +23,7 @@ Pipe has `Queue` data structure and behaves like FIFO.
 
 ### Implementation 
 
-Let's understand how we can implement this mechanism in our shell. First of all, let's see how shell works in a simple way. It first take input as a string, then it parses the input into arguments and thus executes the command with help of `fork-exec` model.
+Let's understand how we can implement this mechanism in our shell. First of all, let's see how shell works in a simple way. It first takes input as a string, then it parses the input into arguments and thus executes the command with help of `fork-exec` model.
 
 What if when pipe is used, for e.g. `command1 | command2 | command3`. There are multiple commands now, so each command is now need to be parsed and count the number of pipes used. 
 
@@ -105,6 +105,7 @@ Thus, we have reached at the end of this blog. Thank you for your attention, hop
 - https://www.scaler.com/topics/pipes-in-os/ 
 - https://github.com/Sl4y3r-07/my-shell
 - https://stackoverflow.com/questions/63544779/how-is-pipe-uni-directional-when-we-get-two-file-descriptors-by-calling-pipe-f
+- https://inst.eecs.berkeley.edu/~cs162/fa21/static/dis/dis2.pdf
 
 
 
