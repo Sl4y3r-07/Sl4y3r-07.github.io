@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>Sl4y3r_07</title>
   <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
-  <updated>2024-05-31T03:01:27+05:30</updated>
+  <updated>2024-12-25T15:20:26+05:30</updated>
   <author>
     <name>Ayush Goyal</name>
     <uri>http://localhost:4000/</uri>
@@ -20,11 +20,57 @@
 
   
   <entry>
+    <title>BackdoorCTF'24 Writeup</title>
+    <link href="http://localhost:4000/posts/BackdoorCTF'24-Writeup/" rel="alternate" type="text/html" title="BackdoorCTF&amp;apos;24 Writeup" />
+    <published>2024-12-23T09:41:40+05:30</published>
+  
+    <updated>2024-12-23T09:41:40+05:30</updated>
+  
+    <id>http://localhost:4000/posts/BackdoorCTF'24-Writeup/</id>
+    <content src="http://localhost:4000/posts/BackdoorCTF'24-Writeup/" />
+    <author>
+      <name>Ayush Goyal</name>
+    </author>
+
+  
+    
+    <category term="Writeups" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      Reversing/ GoBlind
+
+Description:
+This binary hides its secrets deep within. Can you untangle the layers and reveal the secret?
+
+File : file
+
+Writeup
+
+  This challenge was written in GoLang.
+  Executing this binary (without debugger), requires a password to reveal some super secret as it says.
+  Giving some random input ( less than 16 chars) says: Invalid Length.
+  Open the binary in the debugge...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
     <title>Piping Process In Shell</title>
     <link href="http://localhost:4000/posts/Piping-Process-In-Shell/" rel="alternate" type="text/html" title="Piping Process In Shell" />
     <published>2024-05-30T06:21:40+05:30</published>
   
-    <updated>2024-05-30T06:21:40+05:30</updated>
+    <updated>2024-05-31T03:01:37+05:30</updated>
   
     <id>http://localhost:4000/posts/Piping-Process-In-Shell/</id>
     <content src="http://localhost:4000/posts/Piping-Process-In-Shell/" />
@@ -173,44 +219,6 @@ This challenge was beginner level forensics challenge. A png image is given as t
 HTTP
 
 HTTP stands for Hypertext Tranfer Protocol. It can be defined as the foundation of communication on the web. It is an application layer protocol, used to transfer information between devices. This protocol involves various request methods and corresponding responses to...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>Networking - Part 1</title>
-    <link href="http://localhost:4000/posts/Networking-Part-1/" rel="alternate" type="text/html" title="Networking - Part 1" />
-    <published>2023-12-13T06:21:40+05:30</published>
-  
-    <updated>2023-12-15T19:51:26+05:30</updated>
-  
-    <id>http://localhost:4000/posts/Networking-Part-1/</id>
-    <content src="http://localhost:4000/posts/Networking-Part-1/" />
-    <author>
-      <name>Ayush Goyal</name>
-    </author>
-
-  
-    
-    <category term="Blogs" />
-    
-    <category term="Networking" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      Hey everyone! This blog covers the basics of computer networking. So let’s start with the fundamental question… Exactly what is a computer network? It’s a network of two or more two devices exchanging information and data. Let’s understand this statement with the working of multiple devices connected to a router.
-
-Most of us have routers at our homes, and multiple devices (like laptops, smartph...
     </summary>
   
 

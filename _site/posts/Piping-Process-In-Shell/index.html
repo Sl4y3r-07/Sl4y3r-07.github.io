@@ -52,7 +52,7 @@
 <meta property="twitter:title" content="Piping Process In Shell" />
 <meta name="twitter:site" content="@twitter_username" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-05-30T06:21:40+05:30","datePublished":"2024-05-30T06:21:40+05:30","description":"Hey everyone! Welcome back to my blog series. Recently, I’ve been dedicating time to my basic my-shell project, where I’m working on implementing a shell in C++. While doing so, I got stuck in adding piping functionality. In this blog, I will be explaining the piping process. So, let’s start with the fundamental question, what is piping?","headline":"Piping Process In Shell","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/Piping-Process-In-Shell/"},"url":"http://localhost:4000/posts/Piping-Process-In-Shell/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-05-31T03:01:37+05:30","datePublished":"2024-05-30T06:21:40+05:30","description":"Hey everyone! Welcome back to my blog series. Recently, I’ve been dedicating time to my basic my-shell project, where I’m working on implementing a shell in C++. While doing so, I got stuck in adding piping functionality. In this blog, I will be explaining the piping process. So, let’s start with the fundamental question, what is piping?","headline":"Piping Process In Shell","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/Piping-Process-In-Shell/"},"url":"http://localhost:4000/posts/Piping-Process-In-Shell/"}</script>
 <!-- End Jekyll SEO tag -->
 
   
@@ -602,6 +602,30 @@
 
     <!-- lastmod date -->
     
+    <span>
+      Updated
+      <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+
+<em
+  class=""
+  data-ts="1717104697"
+  data-df="ll"
+  
+    data-bs-toggle="tooltip" data-bs-placement="bottom"
+  
+>
+  May 31, 2024
+</em>
+
+    </span>
+    
 
   
 
@@ -900,6 +924,13 @@ Pipe has <code class="language-plaintext highlighter-rouge">Queue</code> data st
         
         
         <li class="text-truncate lh-lg">
+          <a href="/posts/Piping-Process-In-Shell/">Piping Process In Shell</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/posts/CPU-Scheduling/">CPU Scheduling</a>
         </li>
       
@@ -943,6 +974,55 @@ Pipe has <code class="language-plaintext highlighter-rouge">Queue</code> data st
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
       
         
         
@@ -978,40 +1058,6 @@ Pipe has <code class="language-plaintext highlighter-rouge">Queue</code> data st
     
     
     
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -1021,93 +1067,6 @@ Pipe has <code class="language-plaintext highlighter-rouge">Queue</code> data st
         
         
 
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
   
     
     
@@ -1159,6 +1118,32 @@ Pipe has <code class="language-plaintext highlighter-rouge">Queue</code> data st
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
     
   
     
@@ -1199,6 +1184,114 @@ Pipe has <code class="language-plaintext highlighter-rouge">Queue</code> data st
     
     
     
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
     
   
     
@@ -1242,19 +1335,22 @@ Pipe has <code class="language-plaintext highlighter-rouge">Queue</code> data st
     <div class="d-flex flex-wrap mt-3 mb-1 me-3">
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/reversing/">reversing</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/computer-networking/">Computer Networking</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/forensics/">Forensics</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/reversing/">reversing</a>
-      
-        
         <a class="post-tag btn btn-outline-primary" href="/tags/computer-science/">Computer Science</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/computer-systems/">Computer Systems</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/golang/">Golang</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/linux/">Linux</a>
@@ -1315,6 +1411,18 @@ Pipe has <code class="language-plaintext highlighter-rouge">Queue</code> data st
 
 
 
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 
   
 
@@ -1552,12 +1660,13 @@ HTTP stands for Hypertext Tranfer Protocol. It can be defined as the ...
   
 
   
-    <div
-      class="btn btn-outline-primary disabled"
+    <a
+      href="/posts/BackdoorCTF'24-Writeup/"
+      class="btn btn-outline-primary"
       prompt="Newer"
     >
-      <p>-</p>
-    </div>
+      <p>BackdoorCTF'24 Writeup</p>
+    </a>
   
 </div>
 
@@ -1597,6 +1706,55 @@ HTTP stands for Hypertext Tranfer Protocol. It can be defined as the ...
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
       
         
         
@@ -1632,40 +1790,6 @@ HTTP stands for Hypertext Tranfer Protocol. It can be defined as the ...
     
     
     
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -1675,93 +1799,6 @@ HTTP stands for Hypertext Tranfer Protocol. It can be defined as the ...
         
         
 
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
   
     
     
@@ -1813,6 +1850,32 @@ HTTP stands for Hypertext Tranfer Protocol. It can be defined as the ...
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
     
   
     
@@ -1853,6 +1916,114 @@ HTTP stands for Hypertext Tranfer Protocol. It can be defined as the ...
     
     
     
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
     
   
     
@@ -1896,19 +2067,22 @@ HTTP stands for Hypertext Tranfer Protocol. It can be defined as the ...
     <div class="d-flex flex-wrap mt-3 mb-1 me-3">
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/reversing/">reversing</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/computer-networking/">Computer Networking</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/forensics/">Forensics</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/reversing/">reversing</a>
-      
-        
         <a class="post-tag btn btn-outline-primary" href="/tags/computer-science/">Computer Science</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/computer-systems/">Computer Systems</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/golang/">Golang</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/linux/">Linux</a>
