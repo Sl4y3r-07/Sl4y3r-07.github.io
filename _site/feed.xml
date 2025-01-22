@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>Sl4y3r_07</title>
   <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
-  <updated>2024-12-25T15:20:26+05:30</updated>
+  <updated>2025-01-22T06:55:07+05:30</updated>
   <author>
     <name>Ayush Goyal</name>
     <uri>http://localhost:4000/</uri>
@@ -13,10 +13,60 @@
   <link rel="alternate" type="text/html" hreflang="en"
     href="http://localhost:4000/"/>
   <generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator>
-  <rights> © 2024 Ayush Goyal </rights>
+  <rights> © 2025 Ayush Goyal </rights>
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>Reversing LummaC2 Stealer</title>
+    <link href="http://localhost:4000/posts/Reversing-LummaC2-Stealer/" rel="alternate" type="text/html" title="Reversing LummaC2 Stealer" />
+    <published>2025-01-19T06:21:40+05:30</published>
+  
+    <updated>2025-01-19T06:21:40+05:30</updated>
+  
+    <id>http://localhost:4000/posts/Reversing-LummaC2-Stealer/</id>
+    <content src="http://localhost:4000/posts/Reversing-LummaC2-Stealer/" />
+    <author>
+      <name>Ayush Goyal</name>
+    </author>
+
+  
+    
+    <category term="Blogs" />
+    
+    <category term="Malware" />
+    
+    <category term="Analysis" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      Hi again! In this blog, I have reversed a malware containing LummaC2 stealer.
+
+Basic Analysis
+
+  
+    First, let’s analyse the malware on VirusTotal 
+
+
+
+  
+  SHA-256 of the file is: c5fd4ee7fef2655d5340221a2fe4990d0b744720fdb0b0530599b376c913bf7e
+  The original name of the binary is Handler.exe and it’s a .NET executable
+  Looking at the strings, lot of base64 encoded strings are present, it su...
+    </summary>
+  
+
+  </entry>
 
   
   <entry>
@@ -179,46 +229,6 @@ I’ve had a headache since last evening. Is there a magic spell that can cure i
 Challenge File:  file
 
 This challenge was beginner level forensics challenge. A png image is given as the challenge file, which seems to be corrupted. As th...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>Networking - Part 2</title>
-    <link href="http://localhost:4000/posts/Networking-Part-2/" rel="alternate" type="text/html" title="Networking - Part 2" />
-    <published>2023-12-15T06:21:40+05:30</published>
-  
-    <updated>2023-12-15T06:21:40+05:30</updated>
-  
-    <id>http://localhost:4000/posts/Networking-Part-2/</id>
-    <content src="http://localhost:4000/posts/Networking-Part-2/" />
-    <author>
-      <name>Ayush Goyal</name>
-    </author>
-
-  
-    
-    <category term="Blogs" />
-    
-    <category term="Networking" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      Welcome to the other part of Computer Networking. In this part, we’ll be exploring the protocols involved in networking.
-
-HTTP
-
-HTTP stands for Hypertext Tranfer Protocol. It can be defined as the foundation of communication on the web. It is an application layer protocol, used to transfer information between devices. This protocol involves various request methods and corresponding responses to...
     </summary>
   
 
