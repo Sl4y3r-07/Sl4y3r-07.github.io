@@ -43,7 +43,11 @@ jobs:
           JEKYLL_ENV: production
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v3
+
+      - name: Download a Build Artifact
+        uses: actions/download-artifact@v5.0.0
+ 
 
   deploy:
     environment:
