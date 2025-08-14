@@ -1,0 +1,174 @@
+<p>Hi again! In this blog, I have reversed a malware containing <code class="language-plaintext highlighter-rouge">LummaC2 stealer</code>.</p>
+
+<h3 id="basic-analysis">Basic Analysis</h3>
+<ul>
+  <li>
+    <p>First, let’s analyse the malware on VirusTotal 
+<img src="../../assets/lumma/2.png" alt="image" />
+<img src="../../assets/lumma/3.png" alt="image" />
+<img src="../../assets/lumma/4.png" alt="image" /></p>
+  </li>
+  <li>SHA-256 of the file is: <code class="language-plaintext highlighter-rouge">c5fd4ee7fef2655d5340221a2fe4990d0b744720fdb0b0530599b376c913bf7e</code></li>
+  <li>The original name of the binary is <code class="language-plaintext highlighter-rouge">Handler.exe</code> and it’s a <code class="language-plaintext highlighter-rouge">.NET executable</code></li>
+  <li>Looking at the strings, lot of base64 encoded strings are present, it suggests there may be some kind of string obfuscation.</li>
+</ul>
+
+<h3 id="static-analysis">Static Analysis</h3>
+<ul>
+  <li>
+    <p>For analysing the malware, I used <code class="language-plaintext highlighter-rouge">dnSpy</code> as our malware is <code class="language-plaintext highlighter-rouge">.NET executable</code>.
+<img src="../../assets/lumma/10.png" alt="image" /></p>
+  </li>
+  <li>WinAPIs like <code class="language-plaintext highlighter-rouge">VirtualProtect</code> and <code class="language-plaintext highlighter-rouge">CallWindowProcA</code> are present: it suggests the presence of <code class="language-plaintext highlighter-rouge">shellcode</code>. 
+So, it leverages the <code class="language-plaintext highlighter-rouge">VirtualProtect</code> call to make the shellcode memory region executable and abuses the <code class="language-plaintext highlighter-rouge">CallWindowProc API</code> to execute the shellcode.</li>
+  <li><code class="language-plaintext highlighter-rouge">Program.VirtualProtect(ref Program.inputData[0], Program.inputData.Length, 64U, ref num);</code>
+ Taking references from Microsoft docs, third param is <code class="language-plaintext highlighter-rouge">flNewProtect</code>: memory protection option, and here <code class="language-plaintext highlighter-rouge">64</code> is being passed that is <code class="language-plaintext highlighter-rouge">PAGE_EXECUTE_READWRITE</code>. It confirms <code class="language-plaintext highlighter-rouge">inputData</code> is the shellcode.</li>
+  <li>
+    <p>Let’s look at <code class="language-plaintext highlighter-rouge">NormalizeListing</code>
+<img src="../../assets/lumma/rc4.png" alt="image" /></p>
+  </li>
+  <li>This function implements RC4 encryption algorithm.</li>
+  <li><code class="language-plaintext highlighter-rouge">DataKey</code> is : <code class="language-plaintext highlighter-rouge">{ 92, 102, 121, 128, 113, 104, 212, 200, 111, 37, 50, 69, 96, 76, 234, 96, 208, 253, 98, 100, 81, 137, 30, 48, 163, 184, 164, 191, 123, 212, 74, 195, 119, 36, 4, 61}</code> -&gt; The key for RC4 decryption of shellcode</li>
+  <li>Similarly, <code class="language-plaintext highlighter-rouge">inputData</code> (or shellcode) and key for decrypting <code class="language-plaintext highlighter-rouge">sectionContent</code> are also hardcoded.
+ <img src="../../assets/lumma/main.png" alt="image" /></li>
+</ul>
+
+<p>This above code is the part of the <code class="language-plaintext highlighter-rouge">Main</code> function. It extracts the <code class="language-plaintext highlighter-rouge">binary path</code> and then checks for <code class="language-plaintext highlighter-rouge">MZ</code> and <code class="language-plaintext highlighter-rouge">PE</code> headers for a valid PE file.</p>
+<ul>
+  <li>There is a loop where a string is encoded as <code class="language-plaintext highlighter-rouge">base64</code> and comapared.</li>
+  <li>From <code class="language-plaintext highlighter-rouge">Program.SectionContent</code>, it seems program sections names like <code class="language-plaintext highlighter-rouge">.text</code>, <code class="language-plaintext highlighter-rouge">.reloc</code>, <code class="language-plaintext highlighter-rouge">.rsrc</code> and <code class="language-plaintext highlighter-rouge">.idata</code> are being compared and if the check passes, data is copied of that section.</li>
+  <li>It seems, this is a packed malware, which will be decrypted with RC4 and then executed.</li>
+  <li>We can verify this using the debugger.</li>
+</ul>
+
+<h3 id="dynamic-analysis">Dynamic Analysis</h3>
+<ul>
+  <li>Now, let’s try to analyse the behaviour of the malware.</li>
+  <li>Run the binary in the sandboxed environment only, to avoid any undesirable consequences.</li>
+  <li>So, first it checked for <code class="language-plaintext highlighter-rouge">s = ".idata"</code> (base64 string was <code class="language-plaintext highlighter-rouge">LmlkYXRh</code>) and then it copied the data from <code class="language-plaintext highlighter-rouge">0xf000</code> to <code class="language-plaintext highlighter-rouge">0x5bbff</code> (offsets of the binary), data length is <code class="language-plaintext highlighter-rouge">0x4cc00</code>
+<img src="../../assets/lumma/11.png" alt="image" /></li>
+  <li>Now, reversing <code class="language-plaintext highlighter-rouge">SecureData</code>, in first call of <code class="language-plaintext highlighter-rouge">NormalizeListing</code>, <code class="language-plaintext highlighter-rouge">.idata</code> data is being passed along with the key (length: <code class="language-plaintext highlighter-rouge">0xA</code>)</li>
+  <li>Key is:- [0xA, 0xB, 0x1, 0x12, 0x0C, 0x57, 0x88, 0x0B, 0xFF, 0x0C]</li>
+  <li>In second call of <code class="language-plaintext highlighter-rouge">NormalizeListing</code>, now <code class="language-plaintext highlighter-rouge">inputData</code> (shellcode) is being passed along with the key (length: <code class="language-plaintext highlighter-rouge">0x24</code>) [Key already mentioned in above block]</li>
+  <li>
+    <p>Our both data are decrypted with RC4 now and another PE file (packed binary) comes out. Let’s try to analyse it.</p>
+  </li>
+  <li>Running <code class="language-plaintext highlighter-rouge">floss</code> on this PE file, gives some interesting results:</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-plaintext" data-lang="plaintext">    Content-Disposition: form-data; name="
+    Content-Type: attachment/x-object
+    Content-Disposition: form-data; name="file"; filename="
+    hwid
+    send_message
+    Eact
+    file
+    Content-Type: multipart/form-data; boundary=
+    Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36
+    Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36
+    \Last Version
+    %Program
+    pplication\
+    advapi32.dll
+    SeImpersonatePrivilege
+    winc
+    json
+    http://localhost:
+    \Local Extension Settings\
+    /Extensions/
+    key4.db
+    cert9.db
+    cookies.sqlite
+    logins.json
+    formhistory.sqlite
+    \key4.db
+    ole32.dll
+    LOCK
+    \Packages
+    Thunderb
+    \LocalState\Indexed\LiveComm\
+    .eml
+    Mails/Windows Mail
+    DiscordCanary
+    DiscordPTB
+    \Local State
+    os_crypt.encrypted_key
+    /dp.txt
+    Path: 
+    Configuration: 
+    Buy now: TG @lummanowork
+    Buy&amp;Sell logs: @lummamarketplace_bot
+    LummaC2 Build: Jan 15 2025
+    LID: 
+    %SystemDrive%
+    ROOT\CIMV2
+    SELECT * FROM Win32_BIOS
+    SerialNumber</code></pre></figure>
+
+<ul>
+  <li>
+    <p>Debugging it in IDA, 
+ <img src="../../assets/lumma/17.png" alt="image" /> 
+<em>API resolving</em></p>
+  </li>
+  <li>
+    <p>Here is the function which decrypts <code class="language-plaintext highlighter-rouge">base64</code> strings (e.g. <code class="language-plaintext highlighter-rouge">Bm1NE4MDSBkzp0zZyP6i4LdYDOjfYRjN+sZUfIYz8lxvACB872I8fFDPLbWkm8zO1TdijA==</code>) to the domains:
+<img src="../../assets/lumma/16.png" alt="image" /></p>
+  </li>
+  <li>
+    <p>Malicious Domains captured in <code class="language-plaintext highlighter-rouge">Wireshark</code>:</p>
+  </li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">   crookedfoshe.bond
+   strivehelpeu.bond
+   immolatechallen.bond
+   growthselec.bond
+   jarry-deatile.bond
+   pain-temper.bond
+   stripedre-lot.bond
+   jarry-fixxer.bond
+   culltereddirtys.click</code></pre></figure>
+
+<p><img src="../../assets/lumma/12.png" alt="image" /> 
+<img src="../../assets/lumma/13.png" alt="image" /> 
+<em>Setting up and communicating with C2 Server</em></p>
+
+<ul>
+  <li>Malicious IP addr: <code class="language-plaintext highlighter-rouge">172.67.131.36</code> <code class="language-plaintext highlighter-rouge">104.21.3.197</code> <code class="language-plaintext highlighter-rouge">172.67.199.224</code></li>
+</ul>
+
+<p><img src="../../assets/lumma/18.png" alt="image" /> 
+ <em><code class="language-plaintext highlighter-rouge">https://steamcommunity.com/profiles/76561199724331900</code></em>
+ <img src="../../assets/lumma/19.png" alt="image" /></p>
+
+<p><img src="../../assets/lumma/14.png" alt="image" />
+ <em>Collecting data of Edge Browser</em></p>
+
+<p><img src="../../assets/lumma/15.png" alt="image" />
+ <em>Scanning for ‘wallet’ file</em></p>
+
+<p><img src="../../assets/lumma/20.png" alt="image" />
+<em>Scanning for the extensions</em></p>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<ul>
+  <li>Binary Packing</li>
+  <li>Abusing <code class="language-plaintext highlighter-rouge">CallWindowsProcA()</code> for shellcode execution.</li>
+  <li><code class="language-plaintext highlighter-rouge">PEB traversal and API hashing</code></li>
+  <li>Setting up C2 server</li>
+  <li>Using <code class="language-plaintext highlighter-rouge">DDR (Dead Drop Resolver)</code> to hide its C2 details on the steam community website.</li>
+  <li>Contacting malicious domains</li>
+  <li>Stealing sensitive files like: <code class="language-plaintext highlighter-rouge">key4.db</code> <code class="language-plaintext highlighter-rouge">logins.json</code> <code class="language-plaintext highlighter-rouge">cert9.db</code> <code class="language-plaintext highlighter-rouge">os_crypt.encrypted_key</code> and many more.</li>
+  <li>It targets Browsers, CryptoWallets, Extensions, Messaging Apps (like Telegram, Discord), Email Clients (like Thunderbird, PMAIL, The BAT!)</li>
+</ul>
+
+<p><img src="../../assets/lumma/tele.png" alt="image" /> 
+<em>Telegram channel associated with LummaC2.</em></p>
+
+<h3 id="references">References</h3>
+<ul>
+  <li>https://osandamalith.com/2021/04/01/executing-shellcode-via-callbacks/</li>
+</ul>
+

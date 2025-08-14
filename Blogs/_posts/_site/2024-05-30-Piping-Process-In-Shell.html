@@ -1,0 +1,99 @@
+<p>Hey everyone! Welcome back to my blog series. Recently, I’ve been dedicating time to my basic <code class="language-plaintext highlighter-rouge">my-shell</code> project, where I’m working on implementing a shell in C++. While doing so, I got stuck in adding piping functionality. In this blog, I will be explaining the piping process. So, let’s start with the fundamental question, what is <code class="language-plaintext highlighter-rouge">piping</code>?</p>
+
+<p>A mechanism or a process through which the output of a command is used as an input for another command. In simpler words, it involves the chaining of the commands, creating a pipeline through which data flows. Pipe operator is denoted by <code class="language-plaintext highlighter-rouge">|</code>. Commands in the pipeline are executed <code class="language-plaintext highlighter-rouge">sequentially</code>.
+Pipe has <code class="language-plaintext highlighter-rouge">Queue</code> data structure and behaves like FIFO.</p>
+
+<h3 id="how-piping-works">How piping works</h3>
+
+<ul>
+  <li>A separate process is created for each command in the pipeline using <code class="language-plaintext highlighter-rouge">fork()</code> syscall.</li>
+  <li>A commiunication channel is setup through pipe (<code class="language-plaintext highlighter-rouge">|</code>) between the consecutive commands.</li>
+  <li>Pipe is unidirectional in nature. <code class="language-plaintext highlighter-rouge">pipe()</code> syscall creates a pair of file descriptors: <code class="language-plaintext highlighter-rouge">one pointing to the read end and one to the write end</code>.</li>
+  <li>Each process in the pipeline redirects its standard input (<code class="language-plaintext highlighter-rouge">stdin</code>) to read from the read end of the pipe and its standard output (<code class="language-plaintext highlighter-rouge">stdout</code>) to write to the write end of the pipe.</li>
+  <li>As the command is executed, it reads data from the previous command through pipe, processes it and writes the output to the next command in a sequential manner</li>
+</ul>
+
+<p><img src="../../assets/piping/pipe.png" alt="img" /></p>
+
+<h3 id="implementation">Implementation</h3>
+
+<p>Let’s understand how we can implement this mechanism in our shell. First of all, let’s see how shell works in a simple way. It first takes input as a string, then it parses the input into arguments and thus executes the command with help of <code class="language-plaintext highlighter-rouge">fork-exec</code> model.</p>
+
+<p>What if when pipe is used, for e.g. <code class="language-plaintext highlighter-rouge">command1 | command2 | command3</code>. There are multiple commands now, so each command is now need to be parsed and count the number of pipes used.</p>
+
+<p>A <code class="language-plaintext highlighter-rouge">pipe()</code> syscall gives two file descriptors: <code class="language-plaintext highlighter-rouge">pfd[0] for read, and pfd[1] for write</code></p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp">  <span class="kt">int</span> <span class="n">pipes_count</span> <span class="o">=</span> <span class="n">commands</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">pipefds</span><span class="p">[</span><span class="n">pipes_count</span> <span class="o">*</span> <span class="mi">2</span><span class="p">];</span>       <span class="c1">// array to hold file descriptors for pipes</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">pipes_count</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">pipe</span><span class="p">(</span><span class="n">pipefds</span> <span class="o">+</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>   <span class="c1">// initialize pipe</span>
+        <span class="n">perror</span><span class="p">(</span><span class="s">"pipe"</span><span class="p">);</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span></code></pre></figure>
+
+<p><code class="language-plaintext highlighter-rouge">pipe(pipefds + i * 2)</code>: this intialises the two consecutive file descriptors. When i is 0, it initializes <code class="language-plaintext highlighter-rouge">pipefds[0]</code> and <code class="language-plaintext highlighter-rouge">pipefds[1]</code>. Hence, we have created all the required pipes before forking the processes. Now, fork the processes. Each command will run in its own child process.</p>
+
+<p>So, we have input: <code class="language-plaintext highlighter-rouge">command1 | command2 | command3</code>. There are two pipes and three commands. There will be four file descriptors, two for each (one for read end and one for write end).</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp">  <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span> <span class="n">commands</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">pid_t</span> <span class="n">pid</span><span class="o">=</span> <span class="n">fork</span><span class="p">();</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">pid</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>  <span class="c1">// child process</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// redirect input from the previous pipe</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">dup2</span><span class="p">(</span><span class="n">pipefds</span><span class="p">[(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">perror</span><span class="p">(</span><span class="s">"dup2"</span><span class="p">);</span>
+                <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>        
+        <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">commands</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// redirect output to next pipe</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">dup2</span><span class="p">(</span><span class="n">pipefds</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">perror</span><span class="p">(</span><span class="s">"dup2"</span><span class="p">);</span>
+                <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pipes_count</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// Close all pipe file descriptors</span>
+            <span class="n">close</span><span class="p">(</span><span class="n">pipefds</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span>
+        <span class="p">}</span>
+        <span class="n">vector</span><span class="o">&lt;</span> <span class="n">string</span><span class="o">&gt;</span> <span class="n">args</span> <span class="o">=</span> <span class="n">parsing_string</span><span class="p">(</span><span class="n">commands</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>  
+        <span class="n">vector</span><span class="o">&lt;</span> <span class="kt">char</span> <span class="o">*&gt;</span> <span class="n">cargs</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="k">auto</span> <span class="o">&amp;</span><span class="n">arg</span> <span class="o">:</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">cargs</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="k">const_cast</span><span class="o">&lt;</span>  <span class="kt">char</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">arg</span><span class="p">.</span><span class="n">c_str</span><span class="p">()));</span>
+        <span class="p">}</span>
+        <span class="n">cargs</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="nb">nullptr</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">execvp</span><span class="p">(</span><span class="n">cargs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">cargs</span><span class="p">.</span><span class="n">data</span><span class="p">())</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">perror</span><span class="p">(</span><span class="s">"exec"</span><span class="p">);</span>
+            <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+        <span class="p">}</span>
+     <span class="p">}</span> <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">pid</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">perror</span><span class="p">(</span><span class="s">"fork"</span><span class="p">);</span>   <span class="c1">// Error in forking</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="p">}</span>    
+  <span class="p">}</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pipes_count</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">close</span><span class="p">(</span><span class="n">pipefds</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+  <span class="p">}</span></code></pre></figure>
+
+<p>Wehn i==0, child process for command1 will be forked. It will write to Pipe1. stdout of command1 will be redirected to Pipe1 write end, <code class="language-plaintext highlighter-rouge">dup2(pipefds[1], 1);</code></p>
+
+<p>When i==1, child process for command2 will be forked. It reads from pipe1 and writes to pipe2. <code class="language-plaintext highlighter-rouge">dup2(pipefds[0], 0);</code> : redirects stdin of command2 to Pipe 1’s read end and <code class="language-plaintext highlighter-rouge">dup2(pipefds[3], 1);</code>: redirects stdout of command2 to Pipe 2’s write end.</p>
+
+<p>When i==2, child process for command3 will be forked. It reads from Pipe 2. <code class="language-plaintext highlighter-rouge">dup2(pipefds[2], 0)</code> redirects the standard input of command3 to the read end of Pipe 2.</p>
+
+<p>After setting up the necessary redirections using dup2, the child process closes all pipe file descriptors. This is because once dup2 has duplicated the file descriptors to stdin (0) and stdout (1), the original pipe file descriptors are no longer needed by this process.</p>
+
+<p>After forking all child processes, the parent process closes all pipe file descriptors. This is important because the parent process does not need to use these pipes itself.</p>
+
+<p>Closing the file descriptors prevents the resource leakage and ensures the proper functioning of the pipeline.</p>
+
+<p>Thus, we have reached at the end of this blog. Thank you for your attention, hope you like it.</p>
+
+<h3 id="references">References</h3>
+<ul>
+  <li>https://www.scaler.com/topics/pipes-in-os/</li>
+  <li>https://github.com/Sl4y3r-07/my-shell</li>
+  <li>https://stackoverflow.com/questions/63544779/how-is-pipe-uni-directional-when-we-get-two-file-descriptors-by-calling-pipe-f</li>
+  <li>https://inst.eecs.berkeley.edu/~cs162/fa21/static/dis/dis2.pdf</li>
+</ul>
+
