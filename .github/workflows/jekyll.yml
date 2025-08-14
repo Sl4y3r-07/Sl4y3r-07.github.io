@@ -42,8 +42,8 @@ jobs:
         env:
           JEKYLL_ENV: production
 
-      - name: Upload site artifact
-        uses: actions/upload-pages-artifact@v2
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4.6.2
         with:
           path: ./_site   # Jekyll’s default output folder
 
