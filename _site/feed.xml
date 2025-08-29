@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>Sl4y3r_07</title>
   <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
-  <updated>2025-08-14T13:10:44+05:30</updated>
+  <updated>2025-08-30T00:08:47+05:30</updated>
   <author>
     <name>Ayush Goyal</name>
     <uri>http://localhost:4000/</uri>
@@ -12,11 +12,63 @@
   <link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml"/>
   <link rel="alternate" type="text/html" hreflang="en"
     href="http://localhost:4000/"/>
-  <generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator>
+  <generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator>
   <rights> © 2025 Ayush Goyal </rights>
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>EKS ClusterGames Writeups</title>
+    <link href="http://localhost:4000/posts/EKS-ClusterGames-Writeups/" rel="alternate" type="text/html" title="EKS ClusterGames Writeups" />
+    <published>2025-08-29T09:41:40+05:30</published>
+  
+    <updated>2025-08-29T09:41:40+05:30</updated>
+  
+    <id>http://localhost:4000/posts/EKS-ClusterGames-Writeups/</id>
+    <content src="http://localhost:4000/posts/EKS-ClusterGames-Writeups/" />
+    <author>
+      <name>Ayush Goyal</name>
+    </author>
+
+  
+    
+    <category term="Writeups" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      I will be discussing my approaches for solving EKS ClusterGames challenges. So let’s start….
+Challenge 1: Secret Seeker
+
+Description: Jumpstart your quest by listing all the secrets in the cluster. Can you spot the flag among them?
+
+Permissions:
+{
+    "secrets": [
+        "get",
+        "list"
+    ]
+}
+
+
+
+
+So, here is the RBAC (Role-Based Access Control) issue in Kubernetes. What is RBAC?
+
+  Rol...
+    </summary>
+  
+
+  </entry>
 
   
   <entry>
@@ -189,47 +241,6 @@ Writeup
       Hey everyone! Welcome back to my blog series. Recently, I’ve been dedicating time to my basic my-shell project, where I’m working on implementing a shell in C++. While doing so, I got stuck in adding piping functionality. In this blog, I will be explaining the piping process. So, let’s start with the fundamental question, what is piping?
 
 A mechanism or a process through which the output of a c...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>CPU Scheduling</title>
-    <link href="http://localhost:4000/posts/CPU-Scheduling/" rel="alternate" type="text/html" title="CPU Scheduling" />
-    <published>2024-04-05T06:21:40+05:30</published>
-  
-    <updated>2024-04-08T04:01:53+05:30</updated>
-  
-    <id>http://localhost:4000/posts/CPU-Scheduling/</id>
-    <content src="http://localhost:4000/posts/CPU-Scheduling/" />
-    <author>
-      <name>Ayush Goyal</name>
-    </author>
-
-  
-    
-    <category term="Blogs" />
-    
-    <category term="OperatingSystems" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      Hey everyone! This article is about how CPU schedules the processes and executes them, covering various scheduling algorithms. It consists of my notes which I prepared while studying this topic from  operating systems textbook by Silberschatz and Galvin. So let’s start:
-
-CPU-I/O burst cycle
-
-  process execution consists of a cycle of CPU execution and I/O wait.
-  process alternate between these...
     </summary>
   
 
